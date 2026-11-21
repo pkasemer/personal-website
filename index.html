@@ -108,6 +108,13 @@ section{padding:80px 0;border-top:1px solid var(--line)}
 .note time{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .note h3{margin:14px 0 10px;font-size:16.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em}
 .note p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.75}
+.note p+p{margin-top:14px}
+.note-featured{grid-column:1/-1}
+.note-featured h3{font-size:19px}
+.note-featured p{max-width:760px}
+.note ul{margin:10px 0 14px;padding:0 0 0 18px;color:var(--muted);font-size:14.5px;line-height:1.75;max-width:760px}
+.note ul li{margin-bottom:8px;padding-left:2px}
+.note ul li::marker{color:var(--green-2)}
 .about{display:grid;grid-template-columns:1.15fr .85fr;gap:64px}
 .about-card{border:none;border-radius:0;padding:0;background:transparent}
 .about-card h3{margin:0 0 16px;font-size:17px;font-weight:600}
@@ -239,6 +246,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
   <section id="thoughts">
     <div class="section-head"><div><h2>Thoughts &amp; notes</h2><p>Short notes from building — the lessons I keep re-learning, written so they can become posts, talks and better specs.</p></div></div>
     <div class="thoughts">
+      <article class="note note-featured"><time>Note · Deployment · November 2026</time><h3>App Store vs Play Store: shipping the same app twice</h3><p>This month I shipped RIZFM, a radio app, through the App Store. It was rejected first. The email said 'changes needed' and pointed me to a review page — the actual reason lived behind that link, not in the message. We fixed what was asked, resubmitted, and it went live two days later. Two more of our apps are still working through that same review queue.</p><p>Play Store taught me a different lesson earlier this year. An update to one of our apps was blocked — not for the code, but for the account. Google wanted an organization account, with our company verified against its D-U-N-S record. The old version stayed live; new releases waited on paperwork.</p><p>Same team, same code, two very different gates. Apple gates the build: review is strict, feedback is specific but buried, and every resubmission restarts a clock. Google gates the publisher: once the account is verified, releases move fast — but getting verified is its own project.</p><p>My takeaways so far:</p><ul><li>Budget time for review, not just for building. A rejection is a schedule event, not a failure.</li><li>Read the reviewer's actual message before changing anything. Guessing wastes builds.</li><li>Sort your store accounts early — company verification, legal name matching your records exactly. It is boring until it blocks a release.</li><li>Keep builds precious. When your CI gives you a handful of free builds a month, every upload should be deliberate.</li></ul><p>Shipping is part of the product. The store is not the finish line — it is another system to engineer around.</p></article>
       <article class="note"><time>Note · Building</time><h3>Spec-driven building</h3><p>Keeping a spec as the single source of truth while an app is built screen by screen. When the spec and the build disagree, stop and decide — don’t let drift decide for you.</p></article>
       <article class="note"><time>Note · Quality</time><h3>Verification over generation</h3><p>Generating code is cheap now. Checking a build against its spec — screen by screen, number by number — is the work that makes it done.</p></article>
       <article class="note"><time>Note · Money</time><h3>Money pacing, in one division</h3><p>Most budgeting fails on pacing, not totals. Take what’s left after bills, divide by the days left in the month. That one number, checked daily, changes behaviour.</p></article>
