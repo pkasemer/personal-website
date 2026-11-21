@@ -70,6 +70,15 @@ h1 .hero-sub{display:block;margin-top:20px;font-family:"DM Sans",system-ui,sans-
 @media(prefers-reduced-motion:reduce){.pv-particle,.pv-live i{animation:none!important}.pv-particle{opacity:0}}
 @media(max-width:900px){.pv-stages{grid-template-columns:repeat(3,1fr)}.pv-stage:not(:last-child)::after{display:none}.pv-track,.pv-particle{display:none}}
 @media(max-width:520px){.pv-stages{grid-template-columns:1fr 1fr}}
+.tools-groups{display:grid;gap:46px}
+.tool-group h3{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 18px;display:flex;align-items:center;gap:16px}
+.tool-group h3::after{content:"";height:1px;background:var(--line);flex:1}
+.tool-grid{display:flex;flex-wrap:wrap;gap:10px}
+.tool{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:#fff;padding:8px 13px 8px 11px;border-radius:2px;font-size:13.5px;font-weight:500;line-height:1.35;color:var(--ink)}
+.tool img{width:18px;height:18px;flex:none;filter:grayscale(1);opacity:.7}
+.tool:hover img{filter:none;opacity:1}
+.tool-text{padding-left:13px;color:var(--muted)}
+.about-card a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--green);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
 .glance{margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
@@ -138,7 +147,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
 <body>
 <header class="topbar"><div class="wrap topbar-inner">
 <a class="logo" href="#top"><span class="logo-mark">H</span> Hafiz Alyanga</a>
-<nav class="nav" aria-label="Primary"><a href="#work">Work</a><a href="#process">Process</a><a href="#thoughts">Thoughts</a><a href="#about">About</a></nav>
+<nav class="nav" aria-label="Primary"><a href="#work">Work</a><a href="#tools">Tools</a><a href="#process">Process</a><a href="#thoughts">Thoughts</a><a href="#about">About</a></nav>
 <a class="btn btn-primary" href="mailto:pkasemer@gmail.com">Get in touch</a>
 </div></header>
 
@@ -148,7 +157,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
       <div>
         <span class="eyebrow"><span class="dot"></span> Kampala, Uganda — Building in public</span>
         <h1>Full-stack developer.<span class="hero-sub">I build everything, including mobile apps — microservices, .NET, containers, SwiftUI, Java and Python, plus AI tooling with MCP, OpenAI, Claude and agents.</span></h1>
-        <p class="lede">I’m Hafiz Alyanga — Data Engineer &amp; Full-Stack Developer in Kampala, building AI-powered systems across fintech, health and agriculture. I build products through Kakebe Technologies, and spend my own time testing ideas and turning experiments into useful software.</p>
+        <p class="lede">I’m Hafiz Alyanga — Data Engineer &amp; Full-Stack Developer in Kampala. I build products through Kakebe Technologies: APIs in Python and .NET, data pipelines with Airflow and dbt, mobile apps in SwiftUI and React Native, and on-device ML for health screening. I work from real logs and real errors, ship the smallest honest version, and verify it against reality before I call it done.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">See selected work ↓</a>
           <a class="btn btn-ghost" href="#thoughts">Read my notes</a>
@@ -174,7 +183,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
 
   <section id="work">
     <div class="section-head">
-      <div><h2>Selected work</h2><p>Products and systems I’ve built or lead — from a daily money-pacing app to AI for malaria detection.</p></div>
+      <div><h2>Selected work</h2><p>Products and systems I’ve built or lead — a daily money-pacing app, a radio API serving a directory of Ugandan stations, a multi-outlet news aggregator, and on-device AI for malaria detection. Each card names the actual stack and the actual state it’s in.</p></div>
       <div class="filters" role="group" aria-label="Filter work">
         <button class="filter" data-filter="all" aria-pressed="true">All</button>
         <button class="filter" data-filter="fintech" aria-pressed="false">Fintech</button>
@@ -187,15 +196,15 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
     <div class="work-list" id="workList">
       <article class="project featured" data-cat="fintech">
         <div class="project-top"><h3>InToday — know your Safe Today</h3><span class="badge">Building in public</span></div>
-        <p>A personal savings app built around one simple idea: enter the month’s money and bills, divide what’s left by the days in the month, and you get a daily “Safe Today” number — so you don’t feel rich on the 1st and broke by the 15th. Multi-goal savings, payday-aware planning, and a calm daily check-in.</p>
-        <p>Logging an expense is deliberately three taps: Amount → Tag → Done, in under three seconds — if tracking takes longer than spending, nobody tracks. The app has a mascot, Into the pangolin: sleek and unhurried, like the pace the app is trying to teach.</p>
+        <p>A personal savings app built around one simple idea: enter the month’s money and bills, divide what’s left by the days in the month, and you get a daily “Safe Today” number — so you don’t feel rich on the 1st and broke by the 15th. Multi-goal savings — locked savings can be split across named goals — payday-aware planning (a salary landing on the last business day of one month funds the next month’s plan), and a calm daily check-in.</p>
+        <p>Logging an expense is deliberately three taps: Amount → Tag → Done, in under three seconds — if tracking takes longer than spending, nobody tracks. The iOS app syncs to its own backend service, so the plan survives a change of phone. The app has a mascot, Into the pangolin: sleek and unhurried, like the pace the app is trying to teach.</p>
         <div class="tags"><span class="tag">iOS</span><span class="tag">Product design</span><span class="tag">Backend &amp; sync</span><span class="tag">Fintech</span></div>
       </article>
 
       <article class="project" data-cat="media">
         <div class="project-top"><h3>RIZFM — now live on the App Store</h3><span class="badge">Live · App Store</span></div>
         <p>My most recent launch, built through Kakebe Technologies. RIZFM — “Radio made calm” — went live on the App Store on 21 November 2026, bringing RIZ FM’s radio broadcasts to listeners on iPhone, wherever they are. Free, for iOS 16.4 and later.</p>
-        <p>Behind the app is a Python/Flask API (SQLite, Gunicorn, Docker) deployed at rizfm.pkasemer.com, serving the station directory with search, filtering and featured stations — plus built-in stream health checks so dead streams are caught before listeners find them.</p>
+        <p>Behind the app is an API I built with Python and Flask on SQLite, served by Gunicorn and deployed with Docker Compose at rizfm.pkasemer.com. It exposes /api/v1/stations with search, filtering, pagination and featured stations, per-station and check-all stream health checks, and a /health endpoint — so a dead stream is caught by the system before a listener finds it. The API docs list only what is actually implemented; I verified every documented endpoint against the running service.</p>
         <p><a href="https://apps.apple.com/app/rizfm/id6835637750" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">View RIZFM on the App Store →</a></p>
         <div class="tags"><span class="tag">iOS</span><span class="tag">App Store</span><span class="tag">Radio</span><span class="tag">Entertainment</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">API</span><span class="tag">Kakebe Technologies</span></div>
       </article>
@@ -209,7 +218,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
       <article class="project" data-cat="media">
         <div class="project-top"><h3>NWITQ — one story, seven headlines</h3><span class="badge">MVP · In progress</span></div>
         <p>An MVP that aggregates reporting from multiple trusted Ugandan outlets — Daily Monitor, New Vision, NilePost, The Observer, Chimp Reports and Pulse — into one evolving story: what sources agree on, what only one source reports, where they differ, and how the story develops over time, with sources shown throughout.</p>
-        <p>Built as a React Native app with OpenAI-powered story clustering to group coverage of the same event, and a daily 8 AM digest that brings the picture together each morning.</p>
+        <p>Built with TypeScript and React Native, with OpenAI-powered story clustering to group coverage of the same event. Stories are presented event-first — confirmed facts, one-source claims, a timeline of developments, and the sources behind each part — with a daily 8 AM digest that brings the picture together each morning.</p>
         <p><a href="https://lnkd.in/gN_i59cD" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">Join the waitlist →</a> &nbsp;·&nbsp; <a href="https://lnkd.in/gaKAcyRk" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">See an example story →</a></p>
         <div class="tags"><span class="tag">News</span><span class="tag">Aggregation</span><span class="tag">MVP</span><span class="tag">Uganda</span><span class="tag">Media</span><span class="tag">React Native</span><span class="tag">OpenAI</span></div>
       </article>
@@ -252,14 +261,14 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
 
       <article class="project" data-cat="data">
         <div class="project-top"><h3>Data warehouse engineering</h3><span class="badge">Data Engineering</span></div>
-        <p>The unglamorous work that makes reporting trustworthy: Python ETL pulling from operational databases (Oracle, SQL Server, PostgreSQL), Airflow orchestrating the daily runs, dbt modelling data in layers — bronze → staging → intermediate → gold — and Power BI serving the numbers people actually decide on. Parquet on disk, metadata tracked, and business rules written down where the models can enforce them.</p>
+        <p>The unglamorous work that makes reporting trustworthy. Python ETL pulls from operational databases (Oracle, SQL Server, PostgreSQL) into Parquet; Apache Airflow 3.1 — CeleryExecutor with a Redis broker and PostgreSQL metadata, running in Docker — orchestrates the daily runs; dbt models the data in layers, bronze → staging → intermediate → gold marts; and Power BI serves the numbers people actually decide on. Metadata is tracked per run, and business rules are written down where the models can enforce them — an account with no recent transactions is not automatically an inactive one.</p>
         <div class="tags"><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Python ETL</span><span class="tag">Parquet</span><span class="tag">Power BI</span></div>
       </article>
     </div>
   </section>
 
   <section id="process">
-    <div class="section-head"><div><h2>How I work</h2><p>Every project moves through the same loop — start from a real problem, build the smallest honest version, test it against reality, then refine until it holds up. Shipping is a stage, not the finish. I’m implementation-oriented: I work from real logs and real errors, I want the exact fix over the elegant theory, and I care about production reality — Docker, DNS, certificates, monitoring — as much as the code itself.</p></div></div>
+    <div class="section-head"><div><h2>How I work</h2><p>Every project moves through the same loop — start from a real problem, build the smallest honest version, test it against reality, then refine until it holds up. Shipping is a stage, not the finish. I’m implementation-oriented: I work from real logs and real errors, I want the exact fix over the elegant theory, and I care about production reality — Docker, DNS, certificates, monitoring — as much as the code itself. Three rules sit underneath the loop: documentation follows implementation, never the other way round; an upstream error is surfaced verbatim, never swallowed into a generic 500; and simple systems stay simple — Flask and SQLite where that is all the job needs.</p></div></div>
     <div class="process-visual" role="img" aria-label="How I work, as a left-to-right flow: problem, prototype, test with real data, refine, ship, then learn and iterate — with what I learn looping back to the start.">
       <div class="pv-panel">
         <div class="pv-head"><span>Process / Refinement loop</span><span class="pv-live"><i></i> Always iterating</span></div>
@@ -282,6 +291,19 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
         <div class="pv-foot"><span>Spec first</span><span>Verify, don’t assume</span><span>Small loops</span></div>
       </div>
       <div class="pv-caption"><span>How I work</span><span>Build · Test · Refine</span></div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="section-head"><div><h2>Tools &amp; libraries</h2><p>The stack I actually reach for, grouped by the job it does. Everything here is in production or in a build I maintain — if it is on this list, I have shipped with it, debugged it, or both.</p></div></div>
+    <div class="tools-groups">
+      <div class="tool-group"><h3>Languages &amp; runtimes</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/python.svg" alt="Python logo" width="18" height="18" loading="lazy" onerror="this.remove()">Python</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/openjdk.svg" alt="Java logo" width="18" height="18" loading="lazy" onerror="this.remove()">Java</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/typescript.svg" alt="TypeScript logo" width="18" height="18" loading="lazy" onerror="this.remove()">TypeScript</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/javascript.svg" alt="JavaScript logo" width="18" height="18" loading="lazy" onerror="this.remove()">JavaScript</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/csharp.svg" alt="C Sharp logo" width="18" height="18" loading="lazy" onerror="this.remove()">C#</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/swift.svg" alt="Swift logo" width="18" height="18" loading="lazy" onerror="this.remove()">Swift</span><span class="tool tool-text">SQL</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/gnubash.svg" alt="Bash logo" width="18" height="18" loading="lazy" onerror="this.remove()">Bash</span></div></div>
+      <div class="tool-group"><h3>Backend &amp; APIs</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/dotnet.svg" alt=".NET logo" width="18" height="18" loading="lazy" onerror="this.remove()">.NET / ASP.NET Core</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/springboot.svg" alt="Spring Boot logo" width="18" height="18" loading="lazy" onerror="this.remove()">Spring Boot</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/fastapi.svg" alt="FastAPI logo" width="18" height="18" loading="lazy" onerror="this.remove()">FastAPI</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/flask.svg" alt="Flask logo" width="18" height="18" loading="lazy" onerror="this.remove()">Flask</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/nodedotjs.svg" alt="Node.js logo" width="18" height="18" loading="lazy" onerror="this.remove()">Node.js</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/express.svg" alt="Express logo" width="18" height="18" loading="lazy" onerror="this.remove()">Express</span><span class="tool tool-text">REST</span><span class="tool tool-text">SOAP</span><span class="tool tool-text">Microservices</span></div></div>
+      <div class="tool-group"><h3>Data &amp; BI</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/apacheairflow.svg" alt="Apache Airflow logo" width="18" height="18" loading="lazy" onerror="this.remove()">Apache Airflow</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/dbt.svg" alt="dbt logo" width="18" height="18" loading="lazy" onerror="this.remove()">dbt</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/powerbi.svg" alt="Power BI logo" width="18" height="18" loading="lazy" onerror="this.remove()">Power BI</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/oracle.svg" alt="Oracle logo" width="18" height="18" loading="lazy" onerror="this.remove()">Oracle</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/microsoftsqlserver.svg" alt="Microsoft SQL Server logo" width="18" height="18" loading="lazy" onerror="this.remove()">SQL Server</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/postgresql.svg" alt="PostgreSQL logo" width="18" height="18" loading="lazy" onerror="this.remove()">PostgreSQL</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/sqlite.svg" alt="SQLite logo" width="18" height="18" loading="lazy" onerror="this.remove()">SQLite</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/rabbitmq.svg" alt="RabbitMQ logo" width="18" height="18" loading="lazy" onerror="this.remove()">RabbitMQ</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/redis.svg" alt="Redis logo" width="18" height="18" loading="lazy" onerror="this.remove()">Redis</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/apacheparquet.svg" alt="Apache Parquet logo" width="18" height="18" loading="lazy" onerror="this.remove()">Apache Parquet</span></div></div>
+      <div class="tool-group"><h3>Mobile &amp; frontend</h3><div class="tool-grid"><span class="tool tool-text">SwiftUI</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/react.svg" alt="React logo" width="18" height="18" loading="lazy" onerror="this.remove()">React Native</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/expo.svg" alt="Expo logo" width="18" height="18" loading="lazy" onerror="this.remove()">Expo</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/ionic.svg" alt="Ionic logo" width="18" height="18" loading="lazy" onerror="this.remove()">Ionic</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/angular.svg" alt="Angular logo" width="18" height="18" loading="lazy" onerror="this.remove()">Angular</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/capacitor.svg" alt="Capacitor logo" width="18" height="18" loading="lazy" onerror="this.remove()">Capacitor</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/react.svg" alt="React logo" width="18" height="18" loading="lazy" onerror="this.remove()">React</span></div></div>
+      <div class="tool-group"><h3>AI / ML</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/openai.svg" alt="OpenAI logo" width="18" height="18" loading="lazy" onerror="this.remove()">OpenAI</span><span class="tool"><img src="https://cdn.simpleicons.org/claude" alt="Claude logo" width="18" height="18" loading="lazy" onerror="this.remove()">Claude</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/tensorflow.svg" alt="TensorFlow logo" width="18" height="18" loading="lazy" onerror="this.remove()">TensorFlow</span><span class="tool"><img src="https://cdn.simpleicons.org/yolo" alt="YOLO logo" width="18" height="18" loading="lazy" onerror="this.remove()">YOLO</span><span class="tool tool-text">TensorFlow Lite</span><span class="tool"><img src="https://cdn.simpleicons.org/modelcontextprotocol" alt="Model Context Protocol logo" width="18" height="18" loading="lazy" onerror="this.remove()">MCP</span><span class="tool tool-text">AI agents</span></div></div>
+      <div class="tool-group"><h3>DevOps &amp; infrastructure</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/docker.svg" alt="Docker logo" width="18" height="18" loading="lazy" onerror="this.remove()">Docker</span><span class="tool tool-text">Docker Compose</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/gunicorn.svg" alt="Gunicorn logo" width="18" height="18" loading="lazy" onerror="this.remove()">Gunicorn</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/nginx.svg" alt="nginx logo" width="18" height="18" loading="lazy" onerror="this.remove()">nginx</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/amazonwebservices.svg" alt="Amazon Web Services logo" width="18" height="18" loading="lazy" onerror="this.remove()">AWS — S3 · CloudFront · Lambda · IAM</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/vercel.svg" alt="Vercel logo" width="18" height="18" loading="lazy" onerror="this.remove()">Vercel</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/github.svg" alt="GitHub logo" width="18" height="18" loading="lazy" onerror="this.remove()">GitHub</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/gitlab.svg" alt="GitLab logo" width="18" height="18" loading="lazy" onerror="this.remove()">GitLab</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/linux.svg" alt="Linux logo" width="18" height="18" loading="lazy" onerror="this.remove()">Linux</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/debian.svg" alt="Debian logo" width="18" height="18" loading="lazy" onerror="this.remove()">Debian</span></div></div>
+      <div class="tool-group"><h3>Observability &amp; product</h3><div class="tool-grid"><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/sentry.svg" alt="Sentry logo" width="18" height="18" loading="lazy" onerror="this.remove()">Sentry</span><span class="tool"><img src="https://cdn.jsdelivr.net/npm/simple-icons@12.4.0/icons/posthog.svg" alt="PostHog logo" width="18" height="18" loading="lazy" onerror="this.remove()">PostHog</span></div></div>
     </div>
   </section>
 
@@ -309,23 +331,25 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
     <div class="about">
       <div class="about-card">
         <h3>Engineer first, builder always</h3>
-        <p>I studied at Mbarara University of Science and Technology (2018–2022) and have spent my career at the intersection of data, backend systems and products people actually use — in startups I co-own, in health AI, and in test projects built around ideas I find interesting.</p>
+        <p>I studied at Mbarara University of Science and Technology (2018–2022) and have spent my career at the intersection of data, backend systems and products people actually use — in startups I co-own, in health AI, and in test projects built around ideas I find interesting. The through-line is concrete work: an API with health checks that run before users complain, a warehouse whose layers a report can be traced through, a model that refers to a lab when it is unsure.</p>
         <p>Through Kakebe Technologies and Mwonya Technologies I work as CTO on products for Uganda and beyond, and I’m building a creator lane around one idea: a data engineer in Kampala, building real software in public.</p>
         <p>How I work, in practice: I start from real errors and real logs, not theory. I’d rather have the exact file, line and command that fix a problem than a beautiful explanation of the problem space. I iterate in fast loops — build, test against reality, refine — and I treat production concerns (deployment, DNS, certificates, monitoring, health checks) as part of the product, not paperwork after it. And I have no patience for generic copy: if a screen or a spec can’t say concretely what something does, it isn’t ready.</p>
       </div>
       <div class="about-card">
         <h3>What I work with</h3>
+        <p>Four areas, one habit of verifying everything against reality:</p>
         <ul class="list">
-          <li>Data engineering &amp; backend systems — Airflow, dbt, Python pipelines and AWS (S3, CloudFront, Lambda), alongside Spring Boot and modern stacks</li>
-          <li>Full-stack product development — mobile, web and APIs</li>
-          <li>Machine learning &amp; computer vision, including on-device models</li>
-          <li>Spec-driven delivery and verification</li>
+          <li>Data engineering &amp; backend systems — pipelines, warehouses and the APIs behind products</li>
+          <li>Full-stack product development — mobile, web and APIs, specced before they are built</li>
+          <li>Machine learning &amp; computer vision, including models that run on the device</li>
+          <li>Production operations — deployment, monitoring and health checks treated as part of the product</li>
         </ul>
+        <p style="margin-top:18px"><a href="#tools">See the full tools &amp; libraries list →</a></p>
       </div>
     </div>
 
     <div class="contact">
-      <div><h2>Let’s build something useful.</h2><p>For product work, collaborations, or just to talk building in public — email is best. I share build notes on Instagram, LinkedIn and TikTok as @hafizalyanga.</p></div>
+      <div><h2>Let’s build something useful.</h2><p>For product work — an API, a data pipeline, a mobile app — or collaborations, email is best. I reply fastest to a concrete problem statement: what you are building, what is stuck, and what the logs say. I share build notes on Instagram, LinkedIn and TikTok as @hafizalyanga.</p></div>
       <div class="contact-links">
         <a href="mailto:pkasemer@gmail.com">Email — pkasemer@gmail.com <span>→</span></a>
         <a href="https://github.com/pkasemer" target="_blank" rel="noopener">GitHub — pkasemer <span>→</span></a>
