@@ -180,6 +180,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
         <button class="filter" data-filter="fintech" aria-pressed="false">Fintech</button>
         <button class="filter" data-filter="health" aria-pressed="false">Health AI</button>
         <button class="filter" data-filter="media" aria-pressed="false">Media &amp; Apps</button>
+        <button class="filter" data-filter="data" aria-pressed="false">Data</button>
       </div>
     </div>
 
@@ -187,6 +188,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
       <article class="project featured" data-cat="fintech">
         <div class="project-top"><h3>InToday — know your Safe Today</h3><span class="badge">Building in public</span></div>
         <p>A personal savings app built around one simple idea: enter the month’s money and bills, divide what’s left by the days in the month, and you get a daily “Safe Today” number — so you don’t feel rich on the 1st and broke by the 15th. Multi-goal savings, payday-aware planning, and a calm daily check-in.</p>
+        <p>Logging an expense is deliberately three taps: Amount → Tag → Done, in under three seconds — if tracking takes longer than spending, nobody tracks. The app has a mascot, Into the pangolin: sleek and unhurried, like the pace the app is trying to teach.</p>
         <div class="tags"><span class="tag">iOS</span><span class="tag">Product design</span><span class="tag">Backend &amp; sync</span><span class="tag">Fintech</span></div>
       </article>
 
@@ -235,11 +237,29 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
         <p>My health-AI work follows one rule: on-device models are a screening aid. When a result is uncertain, the system refers to a lab rather than forcing an answer. That restraint is part of the product.</p>
         <div class="tags"><span class="tag">On-device ML</span><span class="tag">Responsible AI</span></div>
       </article>
+
+      <article class="project" data-cat="media">
+        <div class="project-top"><h3>Mwonya — music streaming for Uganda</h3><span class="badge">In development</span></div>
+        <p>A Ugandan music streaming platform built around creators and artists, not just listeners — through Mwonya Technologies, where I’m co-owner and CTO. Still in development and exploration: the goal is a home for Ugandan music where artists are first-class, not an afterthought in someone else’s catalogue.</p>
+        <div class="tags"><span class="tag">Music streaming</span><span class="tag">Creator tools</span><span class="tag">Uganda</span><span class="tag">Mwonya Technologies</span></div>
+      </article>
+
+      <article class="project" data-cat="fintech">
+        <div class="project-top"><h3>Obin Finance</h3><span class="badge">Exploration · MVP</span></div>
+        <p>A fintech MVP in exploration — an early experiment in focused money tooling, being tested quietly before anything is promised publicly. Early days; more here when there’s something real to show.</p>
+        <div class="tags"><span class="tag">Fintech</span><span class="tag">MVP</span><span class="tag">Exploration</span></div>
+      </article>
+
+      <article class="project" data-cat="data">
+        <div class="project-top"><h3>Data warehouse engineering</h3><span class="badge">Data Engineering</span></div>
+        <p>The unglamorous work that makes reporting trustworthy: Python ETL pulling from operational databases (Oracle, SQL Server, PostgreSQL), Airflow orchestrating the daily runs, dbt modelling data in layers — bronze → staging → intermediate → gold — and Power BI serving the numbers people actually decide on. Parquet on disk, metadata tracked, and business rules written down where the models can enforce them.</p>
+        <div class="tags"><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Python ETL</span><span class="tag">Parquet</span><span class="tag">Power BI</span></div>
+      </article>
     </div>
   </section>
 
   <section id="process">
-    <div class="section-head"><div><h2>How I work</h2><p>Every project moves through the same loop — start from a real problem, build the smallest honest version, test it against reality, then refine until it holds up. Shipping is a stage, not the finish.</p></div></div>
+    <div class="section-head"><div><h2>How I work</h2><p>Every project moves through the same loop — start from a real problem, build the smallest honest version, test it against reality, then refine until it holds up. Shipping is a stage, not the finish. I’m implementation-oriented: I work from real logs and real errors, I want the exact fix over the elegant theory, and I care about production reality — Docker, DNS, certificates, monitoring — as much as the code itself.</p></div></div>
     <div class="process-visual" role="img" aria-label="How I work, as a left-to-right flow: problem, prototype, test with real data, refine, ship, then learn and iterate — with what I learn looping back to the start.">
       <div class="pv-panel">
         <div class="pv-head"><span>Process / Refinement loop</span><span class="pv-live"><i></i> Always iterating</span></div>
@@ -275,6 +295,12 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
       <article class="note"><time>Note · Building</time><h3>Spec-driven building</h3><p>Keeping a spec as the single source of truth while an app is built screen by screen. When the spec and the build disagree, stop and decide — don’t let drift decide for you.</p></article>
       <article class="note"><time>Note · Quality</time><h3>Verification over generation</h3><p>Generating code is cheap now. Checking a build against its spec — screen by screen, number by number — is the work that makes it done.</p></article>
       <article class="note"><time>Note · Money</time><h3>Money pacing, in one division</h3><p>Most budgeting fails on pacing, not totals. Take what’s left after bills, divide by the days left in the month. That one number, checked daily, changes behaviour.</p></article>
+      <article class="note"><time>Note · Docs · November 2026</time><h3>Documentation should follow implementation</h3><p>Docs that describe features you haven’t built yet are fiction, and fiction in a README costs everyone time. When I wrote up the RIZFM API, I checked every documented endpoint against the running service — if it wasn’t implemented, it didn’t go in the docs. Write the docs after the code works, then keep them honest every time the code changes.</p></article>
+      <article class="note"><time>Note · Debugging · November 2026</time><h3>Don’t hide upstream failures</h3><p>When a service upstream returns a precise error — say a 422 saying exactly which field it rejected — and your service swallows it and reports a generic 500, you’ve deleted the only useful information in the system. I’ve lost hours to that pattern. Preserve the real error: pass it through, log it verbatim, surface it. A vague failure is a bug in its own right.</p></article>
+      <article class="note"><time>Note · Architecture · November 2026</time><h3>Keep simple systems simple</h3><p>The RIZFM API runs on Flask, SQLite, Gunicorn and Docker — because that’s all a station directory with health checks actually needs. No message broker, no microservices, no Kubernetes. Every layer you add is a layer you maintain, monitor and debug at 2 AM. Earn complexity; don’t start with it.</p></article>
+      <article class="note"><time>Note · Production · November 2026</time><h3>Health checks are part of the product</h3><p>“It compiles” is not “it works”. A /health endpoint, stream checks that catch a dead radio feed before a listener does, a certificate expiry on someone’s calendar, a queue you can see backing up — that’s production reality. If you can’t tell whether the system is alive without SSH-ing in and guessing, the system isn’t finished.</p></article>
+      <article class="note"><time>Note · Systems · November 2026</time><h3>Queues over blocking</h3><p>A webhook that does all its downstream work inline is a crash waiting for traffic. When hundreds of requests land at once, the handler should acknowledge fast, put the work on a queue, and let workers drain it at a pace the downstream systems can survive. Decouple first; your future on-call self will thank you.</p></article>
+      <article class="note"><time>Note · Music tech · November 2026</time><h3>Software for Ugandan artists</h3><p>Alongside Mwonya, I’ve been exploring the tooling side of music: distribution, dashboards, the unglamorous software between an artist recording a song and that song earning money. I even applied to work with FUGA’s distribution dashboard — the problems are familiar ones (metadata, royalties, reporting), just wearing a music-industry coat. Uganda’s artists deserve infrastructure built with them in mind, and I keep circling back to building it.</p></article>
     </div>
   </section>
 
@@ -285,6 +311,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
         <h3>Engineer first, builder always</h3>
         <p>I studied at Mbarara University of Science and Technology (2018–2022) and have spent my career at the intersection of data, backend systems and products people actually use — in startups I co-own, in health AI, and in test projects built around ideas I find interesting.</p>
         <p>Through Kakebe Technologies and Mwonya Technologies I work as CTO on products for Uganda and beyond, and I’m building a creator lane around one idea: a data engineer in Kampala, building real software in public.</p>
+        <p>How I work, in practice: I start from real errors and real logs, not theory. I’d rather have the exact file, line and command that fix a problem than a beautiful explanation of the problem space. I iterate in fast loops — build, test against reality, refine — and I treat production concerns (deployment, DNS, certificates, monitoring, health checks) as part of the product, not paperwork after it. And I have no patience for generic copy: if a screen or a spec can’t say concretely what something does, it isn’t ready.</p>
       </div>
       <div class="about-card">
         <h3>What I work with</h3>
