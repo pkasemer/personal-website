@@ -113,7 +113,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
     <div class="hero-grid">
       <div>
         <span class="eyebrow"><span class="dot"></span> Kampala, Uganda — Building in public</span>
-        <h1>Full-stack developer.<span class="hero-sub">I build mobile apps and on-device AI — a daily money-pacing app, a live radio app for media, and health screening that runs on the phone.</span></h1>
+        <h1>Full-stack developer.<span class="hero-sub">I build everything, including mobile apps — microservices, .NET, containers, SwiftUI, Java and Python, plus AI tooling with MCP, OpenAI, Claude and agents.</span></h1>
         <p class="lede">I’m Hafiz Alyanga — Data Engineer &amp; Full-Stack Developer in Kampala, building AI-powered systems across fintech, health and agriculture. I build products through Kakebe Technologies, and spend my own time testing ideas and turning experiments into useful software.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">See selected work ↓</a>
@@ -127,7 +127,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);f
       </div>
       <div class="hero-side">
       <figure class="davison">
-        <div class="davison-stage" id="davisonStage" role="img" aria-label="Davison — a round, fluffy dark-green 3D bird with a white belly, a yellow beak and large black eyes. Tap him and he hops."></div>
+        <div class="davison-stage" id="davisonStage" role="img" aria-label="Davison — a dark-green 3D bird with white underparts, a yellow beak and large dark eyes, built with layered feathers. Tap him and he hops."></div>
         <div class="davison-fallback" id="davisonFallback" style="display:none" aria-hidden="true">
           <svg viewBox="0 0 200 190" width="100%" role="presentation"><ellipse cx="100" cy="176" rx="52" ry="8" fill="#0e3b2c" opacity=".12"/><circle cx="100" cy="98" r="62" fill="#145943"/><ellipse cx="100" cy="122" rx="36" ry="40" fill="#f7f5ec"/><circle cx="100" cy="52" r="42" fill="#145943"/><circle cx="84" cy="48" r="8.5" fill="#14161a"/><circle cx="116" cy="48" r="8.5" fill="#14161a"/><circle cx="81" cy="45" r="3" fill="#fff"/><circle cx="113" cy="45" r="3" fill="#fff"/><path d="M100 74 L86 60 Q100 54 114 60 Z" fill="#f0a91e"/><ellipse cx="34" cy="104" rx="10" ry="24" fill="#0e3b2c" transform="rotate(14 34 104)"/><ellipse cx="166" cy="104" rx="10" ry="24" fill="#0e3b2c" transform="rotate(-14 166 104)"/><path d="M84 168 q6 6 14 2 M102 170 q6 6 14 2" stroke="#f0a91e" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
         </div>
@@ -246,10 +246,14 @@ document.querySelectorAll('.filter').forEach(function(btn){
 });
 </script>
 <script>
-/* Davison — a round, fluffy dark-green bird. Built from three.js primitives:
-   sphere body and head, white belly, cone beak, big black eyes.
-   three.js loads async (tag after this script) so it never blocks the page;
-   __davisonStart runs when it arrives, or at once if it is already cached. */
+/* Davison — a natural, detailed dark-green bird, built procedurally in
+   three.js: a sculpted body and head with layered feather shells, a shaped
+   two-part beak, glossy eyes with catchlights, feathered wings and tail,
+   and scaly legs with jointed toes. Procedural canvas textures give the
+   plumage its feather grain; lighting is soft and daylight-like, with a
+   real contact shadow. three.js loads async (tag after this script) so it
+   never blocks the page; __davisonStart runs when it arrives, or at once
+   if it is already cached. */
 (function(){
   var host = document.getElementById('davisonStage');
   if(!host) return;
@@ -271,134 +275,343 @@ document.querySelectorAll('.filter').forEach(function(btn){
 
   function init(){
     var renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.05;
+    renderer.toneMappingExposure = 1.12;
     if('outputColorSpace' in renderer && THREE.SRGBColorSpace) renderer.outputColorSpace = THREE.SRGBColorSpace;
+    if('shadowMap' in renderer){ renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; }
     renderer.domElement.style.display = 'block';
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     host.appendChild(renderer.domElement);
 
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-    camera.position.set(0.7, 0.9, 7.4);
-    camera.lookAt(0, 0.1, 0);
+    var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+    camera.position.set(0.55, 0.5, 8.8);
+    camera.lookAt(0, 0.15, 0);
 
     try {
       var pmrem = new THREE.PMREMGenerator(renderer);
       scene.environment = pmrem.fromScene(new THREE.RoomEnvironment(), 0.04).texture;
-    } catch(e){ /* lights alone are enough for matte feathers */ }
+    } catch(e){ /* lights alone carry the plumage */ }
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xdcdccf, 0.85));
-    var key = new THREE.DirectionalLight(0xffffff, 1.5);
-    key.position.set(3.5, 5, 4.5); scene.add(key);
-    var fill = new THREE.DirectionalLight(0xeaf3d8, 0.5);
-    fill.position.set(-4, 1.5, 3); scene.add(fill);
-    var rim = new THREE.DirectionalLight(0xc8e86a, 0.5);
-    rim.position.set(-2.5, 3, -4); scene.add(rim);
+    /* soft, daylight-like lighting: sky/ground bounce, a warm key light
+       casting a real soft shadow, a cool fill and a gentle green rim */
+    scene.add(new THREE.HemisphereLight(0xf4f7ee, 0x8a9078, 0.75));
+    var key = new THREE.DirectionalLight(0xfff2dd, 1.9);
+    key.position.set(3.2, 5.2, 4.2);
+    key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    key.shadow.camera.left = -3.4; key.shadow.camera.right = 3.4;
+    key.shadow.camera.top = 3.4; key.shadow.camera.bottom = -3.4;
+    key.shadow.camera.near = 1; key.shadow.camera.far = 16;
+    key.shadow.bias = -0.002; key.shadow.radius = 4;
+    scene.add(key);
+    var fill = new THREE.DirectionalLight(0xdfeaf2, 0.55);
+    fill.position.set(-4.5, 1.2, 3.5); scene.add(fill);
+    var rim = new THREE.DirectionalLight(0xd8edae, 0.65);
+    rim.position.set(-2.0, 3.2, -4.5); scene.add(rim);
 
-    function mat(color, rough){
-      var m = new THREE.MeshStandardMaterial({color:color, roughness:rough, metalness:0});
-      m.envMapIntensity = 0.45;
+    /* ---- procedural feather textures ------------------------------------
+       Rows of overlapping scalloped vanes drawn on a canvas; used as the
+       plumage colour map and bump map so the surface reads as feathers
+       rather than smooth plastic. */
+    function featherTexture(base, tip, rows, cols, seed){
+      var c = document.createElement('canvas'); c.width = 256; c.height = 256;
+      var g = c.getContext('2d');
+      g.fillStyle = base; g.fillRect(0, 0, 256, 256);
+      var rnd = seed || 7;
+      function rand(){ rnd = (rnd * 16807) % 2147483647; return rnd / 2147483647; }
+      var rh = 256 / rows, cw = 256 / cols;
+      for(var r = 0; r < rows + 1; r++){
+        for(var i = -1; i < cols + 1; i++){
+          var cx = i * cw + (r % 2 ? cw / 2 : 0) + (rand() - 0.5) * 4;
+          var cy = r * rh;
+          var w = cw * (0.72 + rand() * 0.2), h = rh * 1.9;
+          g.beginPath();
+          g.moveTo(cx, cy - h * 0.35);
+          g.quadraticCurveTo(cx + w / 2, cy + h * 0.25, cx, cy + h * 0.72);
+          g.quadraticCurveTo(cx - w / 2, cy + h * 0.25, cx, cy - h * 0.35);
+          g.fillStyle = (rand() > 0.5) ? tip : base;
+          g.globalAlpha = 0.16 + rand() * 0.14;
+          g.fill();
+          g.globalAlpha = 0.3;
+          g.strokeStyle = tip;
+          g.lineWidth = 1;
+          g.beginPath(); g.moveTo(cx, cy - h * 0.3); g.lineTo(cx, cy + h * 0.66); g.stroke();
+        }
+      }
+      g.globalAlpha = 1;
+      var tex = new THREE.CanvasTexture(c);
+      tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+      if('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = 4;
+      return tex;
+    }
+    var greenTex  = featherTexture('#17573f', '#0d3a29', 9, 7, 11);
+    var greenTex2 = featherTexture('#0f4630', '#082a1d', 9, 7, 29);
+    var creamTex  = featherTexture('#f6f2e6', '#e0d9c2', 10, 8, 43);
+
+    function featherMat(tex, rough, rx, ry){
+      var t = tex.clone(); t.needsUpdate = true; t.repeat.set(rx, ry);
+      var b = tex.clone(); b.needsUpdate = true; b.repeat.set(rx, ry);
+      if(THREE.NoColorSpace !== undefined) b.colorSpace = THREE.NoColorSpace;
+      var m = new THREE.MeshStandardMaterial({
+        map: t, bumpMap: b, bumpScale: 0.6, roughness: rough, metalness: 0
+      });
+      m.envMapIntensity = 0.5;
       return m;
     }
-    var green     = mat(0x145943, 0.95);
-    var greenDark = mat(0x0e3b2c, 0.95);
-    var cream     = mat(0xf7f5ec, 0.9);
-    var beakMat   = mat(0xf0a91e, 0.55);
-    var eyeMat    = mat(0x14161a, 0.25);
-    var shineMat  = new THREE.MeshBasicMaterial({color:0xffffff});
+    var greenMat     = featherMat(greenTex,  0.92, 2, 2);
+    var greenDarkMat = featherMat(greenTex2, 0.94, 2, 2);
+    var creamMat     = featherMat(creamTex,  0.95, 2, 2);
+    var flightMat    = featherMat(greenTex2, 0.9, 1, 3);
 
-    function ball(r, m, x, y, z, sx, sy, sz){
-      var ms = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), m);
+    var beakMat = new THREE.MeshStandardMaterial({color:0xf2a81d, roughness:0.42, metalness:0});
+    beakMat.envMapIntensity = 0.6;
+    var beakTipMat = new THREE.MeshStandardMaterial({color:0xd98d12, roughness:0.5, metalness:0});
+    var legMat = new THREE.MeshStandardMaterial({color:0xc98f2e, roughness:0.75, metalness:0});
+    var eyeMat = new THREE.MeshPhysicalMaterial({color:0x17130e, roughness:0.08, metalness:0, clearcoat:1, clearcoatRoughness:0.12});
+    eyeMat.envMapIntensity = 1.2;
+    var shineMat = new THREE.MeshBasicMaterial({color:0xffffff});
+
+    function ball(r, m, x, y, z, sx, sy, sz, seg){
+      var ms = new THREE.Mesh(new THREE.SphereGeometry(r, seg || 48, 36), m);
       ms.position.set(x, y, z);
       if(sx !== undefined) ms.scale.set(sx, sy, sz);
+      ms.castShadow = true; ms.receiveShadow = true;
       return ms;
+    }
+
+    /* LatheGeometry profile -> a smooth, sculpted solid of revolution */
+    function lathe(pts, m, seg){
+      var v = [];
+      for(var i = 0; i < pts.length; i++) v.push(new THREE.Vector2(pts[i][0], pts[i][1]));
+      var ms = new THREE.Mesh(new THREE.LatheGeometry(v, seg || 56), m);
+      ms.castShadow = true; ms.receiveShadow = true;
+      return ms;
+    }
+    function latheGeo(pts, seg){
+      var v = [];
+      for(var i = 0; i < pts.length; i++) v.push(new THREE.Vector2(pts[i][0], pts[i][1]));
+      return new THREE.LatheGeometry(v, seg || 40);
+    }
+
+    /* one layered feather: a flattened, slightly cupped teardrop shell,
+       base at the origin, tip along +Y */
+    var featherGeo = (function(){
+      var s = new THREE.Shape();
+      s.moveTo(0, 0);
+      s.bezierCurveTo(0.30, 0.10, 0.34, 0.42, 0, 0.78);
+      s.bezierCurveTo(-0.34, 0.42, -0.30, 0.10, 0, 0);
+      var g = new THREE.ExtrudeGeometry(s, {depth:0.035, bevelEnabled:true, bevelThickness:0.02, bevelSize:0.02, bevelSegments:2, curveSegments:10});
+      g.translate(0, 0, -0.03);
+      return g;
+    })();
+    function feather(m, len, wid){
+      var ms = new THREE.Mesh(featherGeo, m);
+      ms.scale.set(wid, len, 1);
+      ms.castShadow = true;
+      return ms;
+    }
+    /* an arc of overlapping feather rows over a body patch: bases tucked
+       into the surface, tips sweeping down and slightly outward */
+    function featherPatch(parent, cx, cy, cz, rows, perRow, rBase, rStep, len, wid, m, tilt, aCenter, aSpan){
+      for(var r = 0; r < rows; r++){
+        var rr = rBase + r * rStep;
+        for(var i = 0; i < perRow; i++){
+          var a = aCenter + (perRow === 1 ? 0 : (i / (perRow - 1) - 0.5) * aSpan) + r * 0.18;
+          var px = cx + Math.cos(a) * rr;
+          var py = cy - r * rStep * 0.75;
+          var pz = cz + Math.sin(a) * rr * 0.92;
+          var f = feather(m, len * (0.92 + (r % 3) * 0.05), wid);
+          f.position.set(px, py, pz);
+          f.lookAt(px + Math.cos(a) * 0.6, py - 1.7, pz + Math.sin(a) * 0.55);
+          f.rotateX(Math.PI / 2 - tilt);
+          parent.add(f);
+        }
+      }
     }
 
     var bird = new THREE.Group();
     scene.add(bird);
+    bird.rotation.y = -0.32;
 
-    /* body — one round, slightly tall sphere */
-    bird.add(ball(1.18, green, 0, 0, 0, 1, 1.04, 0.94));
-    /* white belly, proud of the chest */
-    bird.add(ball(0.86, cream, 0, -0.34, 0.60, 0.84, 0.98, 0.52));
+    /* ---- body: sculpted profile — full breast, tapered rear ---- */
+    var body = lathe([
+      [0.001, -1.06], [0.42, -1.02], [0.78, -0.88], [1.02, -0.62],
+      [1.13, -0.28], [1.14, 0.08], [1.06, 0.42], [0.90, 0.72],
+      [0.66, 0.94], [0.38, 1.06], [0.001, 1.10]
+    ], greenMat);
+    body.scale.set(0.94, 1, 1.04);
+    bird.add(body);
 
-    /* head */
+    /* white underparts: lower belly and upper breast, sitting proud of
+       the green body at the front */
+    bird.add(ball(1.0, creamMat, 0, -0.18, 0.55, 0.72, 0.88, 0.75));
+    bird.add(ball(0.8, creamMat, 0, 0.42, 0.62, 0.66, 0.8, 0.62));
+
+    /* layered feather shells over the back and the breast */
+    featherPatch(bird, 0, 0.58, -0.05, 4, 7, 0.92, 0.06, 0.55, 0.5, greenDarkMat, 0.35, -Math.PI/2, 2.6);
+    featherPatch(bird, 0, 0.32, 0.30, 3, 6, 0.66, 0.07, 0.44, 0.44, creamMat, 0.4, Math.PI/2, 2.0);
+
+    /* ---- head on a short neck, held high ---- */
+    bird.add(ball(0.52, greenMat, 0, 0.84, 0.20, 0.95, 1.1, 0.95));
     var head = new THREE.Group();
-    head.position.set(0, 0.62, 0.30);
+    head.position.set(0, 1.18, 0.34);
     bird.add(head);
-    head.add(ball(0.80, green, 0, 0, 0, 1, 0.96, 0.95));
+    var skull = lathe([
+      [0.001, -0.52], [0.30, -0.50], [0.52, -0.40], [0.66, -0.20],
+      [0.71, 0.05], [0.68, 0.30], [0.55, 0.50], [0.34, 0.64], [0.001, 0.70]
+    ], greenMat);
+    skull.scale.set(0.92, 1, 0.98);
+    head.add(skull);
+    /* pale cheek patches and a white throat bib */
+    head.add(ball(0.36, creamMat, -0.34, -0.28, 0.36, 0.85, 1.0, 0.62));
+    head.add(ball(0.36, creamMat,  0.34, -0.28, 0.36, 0.85, 1.0, 0.62));
+    head.add(ball(0.42, creamMat, 0, -0.50, 0.28, 1.0, 0.95, 0.7));
+    /* a neat crest of short feathers swept back over the crown */
+    featherPatch(head, 0, 0.50, -0.02, 2, 5, 0.18, 0.10, 0.36, 0.3, greenDarkMat, 0.7, -Math.PI/2, 2.6);
 
-    /* head tuft — three small cones */
-    [-0.15, 0, 0.15].forEach(function(x){
-      var c = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.32, 20), greenDark);
-      c.position.set(x, 0.82, -0.04);
-      c.rotation.z = -x * 1.4;
-      c.rotation.x = -0.15;
-      head.add(c);
-    });
-
-    /* large black eyes with a catchlight */
-    function makeEye(x){
+    /* ---- eyes: glossy dark spheres on the head's surface, with a warm
+           iris ring and two catchlights ---- */
+    function makeEye(side){
       var g = new THREE.Group();
-      g.position.set(x, 0.14, 0.68);
-      g.add(ball(0.135, eyeMat, 0, 0, 0));
-      g.add(ball(0.045, shineMat, -0.045, 0.05, 0.105));
+      g.position.set(0.335 * side, 0.13, 0.55);
+      g.rotation.y = side * 0.5;
+      var eyeball = ball(0.125, eyeMat, 0, 0, 0, 1, 1, 1, 32);
+      eyeball.castShadow = false;
+      g.add(eyeball);
+      var iris = new THREE.Mesh(new THREE.TorusGeometry(0.098, 0.016, 10, 28),
+        new THREE.MeshStandardMaterial({color:0x5a3d16, roughness:0.35}));
+      iris.position.z = 0.085;
+      g.add(iris);
+      var s1 = ball(0.032, shineMat, -0.04, 0.05, 0.105); s1.castShadow = false; g.add(s1);
+      var s2 = ball(0.016, shineMat, 0.045, -0.035, 0.11); s2.castShadow = false; g.add(s2);
       head.add(g);
       return g;
     }
-    var eyeL = makeEye(-0.31), eyeR = makeEye(0.31);
+    var eyeL = makeEye(-1), eyeR = makeEye(1);
 
-    /* beak — two yellow cones, upper over lower */
+    /* ---- beak: a shaped upper mandible (wide at the face, pointed tip,
+           nostrils on top) over a smaller lower mandible ---- */
     var beak = new THREE.Group();
-    beak.position.set(0, -0.06, 0.74);
+    beak.position.set(0, -0.08, 0.78);
     head.add(beak);
-    var upper = new THREE.Mesh(new THREE.ConeGeometry(0.17, 0.36, 32), beakMat);
-    upper.rotation.x = Math.PI/2 + 0.18; upper.position.set(0, 0.02, 0.10);
+    var upperGeo = latheGeo([
+      [0.001, -0.16], [0.13, -0.155], [0.185, -0.11], [0.20, -0.03],
+      [0.185, 0.07], [0.14, 0.15], [0.06, 0.185], [0.001, 0.19]
+    ]);
+    upperGeo.rotateX(Math.PI/2 - 0.1);
+    var upper = new THREE.Mesh(upperGeo, beakMat);
+    upper.scale.set(0.82, 0.78, 1.25);
+    upper.castShadow = true;
     beak.add(upper);
-    var lower = new THREE.Mesh(new THREE.ConeGeometry(0.125, 0.26, 32), beakMat);
-    lower.rotation.x = Math.PI/2 + 0.5; lower.position.set(0, -0.085, 0.05);
+    beak.add(ball(0.05, beakTipMat, 0, 0.0, 0.24, 0.9, 0.75, 1.2));
+    [-1, 1].forEach(function(s){
+      var n = ball(0.018, beakTipMat, 0.07 * s, 0.11, 0.02, 1, 0.6, 1.8);
+      n.castShadow = false;
+      beak.add(n);
+    });
+    var lowerGeo = latheGeo([
+      [0.001, -0.10], [0.10, -0.095], [0.14, -0.05],
+      [0.135, 0.03], [0.09, 0.08], [0.001, 0.095]
+    ]);
+    lowerGeo.rotateX(Math.PI/2 - 0.02);
+    var lower = new THREE.Mesh(lowerGeo, beakTipMat);
+    lower.scale.set(0.78, 0.6, 1.15);
+    lower.position.set(0, -0.09, 0.02);
+    lower.castShadow = true;
     beak.add(lower);
 
-    /* wings on pivots so they can flap */
+    /* ---- wings: layered covert feathers over long flight feathers,
+           folded along the body's sides ---- */
     function makeWing(side){
       var pivot = new THREE.Group();
-      pivot.position.set(1.02 * side, 0.28, 0.02);
-      pivot.add(ball(0.55, greenDark, 0.16 * side, -0.34, 0, 0.34, 0.78, 0.55));
+      pivot.position.set(0.86 * side, 0.40, -0.02);
       bird.add(pivot);
+      pivot.add(ball(0.6, greenMat, 0.12 * side, -0.26, -0.14, 0.36, 0.85, 1.05));
+      for(var r = 0; r < 3; r++){
+        for(var i = 0; i < 4; i++){
+          var f = feather(r % 2 ? greenMat : greenDarkMat, 0.55 - r * 0.04, 0.42);
+          f.position.set(side * (0.20 + r * 0.02), -0.02 - r * 0.20, 0.02 - i * 0.11);
+          f.rotation.set(0.2 + r * 0.1, side * 0.3, -side * (1.95 + i * 0.06));
+          pivot.add(f);
+        }
+      }
+      for(var k = 0; k < 5; k++){
+        var pf = feather(flightMat, 0.92 - k * 0.05, 0.34);
+        pf.position.set(side * 0.16, -0.55 - k * 0.03, -0.15 - k * 0.12);
+        pf.rotation.set(0.35, side * 0.35, -side * 2.35);
+        pivot.add(pf);
+      }
       return pivot;
     }
     var wingL = makeWing(-1), wingR = makeWing(1);
 
-    /* tail — three short cones fanning back and up */
-    [-0.16, 0, 0.16].forEach(function(x){
-      var c = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.55, 20), greenDark);
-      c.position.set(x, 0.17, -1.12);
-      c.rotation.x = -Math.PI/2 + 0.55;
-      bird.add(c);
+    /* ---- tail: flat feathers fanned behind, tilted up ---- */
+    var tail = new THREE.Group();
+    tail.position.set(0, 0.28, -1.02);
+    tail.rotation.x = 0.35;
+    bird.add(tail);
+    [-0.42, -0.21, 0, 0.21, 0.42].forEach(function(a, i){
+      var f = feather(i % 2 ? greenDarkMat : flightMat, 1.05, 0.5);
+      f.position.set(Math.sin(a) * 0.35, 0, -Math.cos(a) * 0.1);
+      f.rotation.set(-Math.PI/2 + 0.15, 0, a);
+      tail.add(f);
     });
 
-    /* feet — small flattened yellow ellipsoids */
-    [-0.38, 0.38].forEach(function(x){
-      bird.add(ball(0.16, beakMat, x, -1.24, 0.34, 1.15, 0.38, 1.5));
-    });
+    /* ---- legs and feet: scaly shanks with scale rings, three jointed
+           front toes with claws and a smaller back toe ---- */
+    function makeFoot(side){
+      var g = new THREE.Group();
+      g.position.set(0.36 * side, -1.02, 0.10);
+      bird.add(g);
+      var leg = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.055, 0.34, 12), legMat);
+      leg.position.y = -0.14; leg.castShadow = true;
+      g.add(leg);
+      for(var i = 0; i < 3; i++){
+        var ring = new THREE.Mesh(new THREE.TorusGeometry(0.052, 0.012, 8, 16), beakTipMat);
+        ring.rotation.x = Math.PI/2;
+        ring.position.y = -0.05 - i * 0.09;
+        g.add(ring);
+      }
+      var foot = new THREE.Group();
+      foot.position.y = -0.33;
+      g.add(foot);
+      [-0.55, 0, 0.55].forEach(function(a){
+        var toe = new THREE.Group();
+        toe.rotation.y = a;
+        foot.add(toe);
+        var seg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.038, 0.24, 10), legMat);
+        seg1.rotation.x = Math.PI/2 - 0.12; seg1.position.set(0, 0.01, 0.11); seg1.castShadow = true;
+        toe.add(seg1);
+        var seg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.03, 0.20, 10), legMat);
+        seg2.rotation.x = Math.PI/2 + 0.1; seg2.position.set(0, -0.005, 0.29); seg2.castShadow = true;
+        toe.add(seg2);
+        var claw = new THREE.Mesh(new THREE.ConeGeometry(0.02, 0.09, 10), beakTipMat);
+        claw.rotation.x = Math.PI/2 + 0.45; claw.position.set(0, -0.02, 0.42);
+        toe.add(claw);
+      });
+      var bseg = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 0.18, 10), legMat);
+      bseg.rotation.x = -Math.PI/2 + 0.15; bseg.position.set(0, 0.005, -0.09); bseg.castShadow = true;
+      foot.add(bseg);
+      var bclaw = new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.07, 10), beakTipMat);
+      bclaw.rotation.x = -Math.PI/2 - 0.4; bclaw.position.set(0, -0.015, -0.20);
+      foot.add(bclaw);
+    }
+    makeFoot(-1); makeFoot(1);
 
-    /* soft contact shadow (radial-gradient sprite texture, no shadow maps) */
-    var sc = document.createElement('canvas'); sc.width = sc.height = 128;
-    var g2 = sc.getContext('2d');
-    var grad = g2.createRadialGradient(64, 64, 4, 64, 64, 62);
-    grad.addColorStop(0, 'rgba(20,40,30,0.55)');
-    grad.addColorStop(1, 'rgba(20,40,30,0)');
-    g2.fillStyle = grad; g2.fillRect(0, 0, 128, 128);
-    var shadow = new THREE.Mesh(
-      new THREE.PlaneGeometry(3.6, 2.2),
-      new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sc), transparent:true, opacity:0.4, depthWrite:false})
+    /* ground: an invisible plane that catches the bird's real soft
+       shadow, grounding him on the page */
+    var ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(9, 9),
+      new THREE.ShadowMaterial({color:0x14301f, opacity:0.22})
     );
-    shadow.rotation.x = -Math.PI/2;
-    shadow.position.y = -1.32;
-    scene.add(shadow);
+    ground.rotation.x = -Math.PI/2;
+    ground.position.y = -1.40;
+    ground.receiveShadow = true;
+    scene.add(ground);
 
     function resize(){
       var w = host.clientWidth, h = host.clientHeight;
@@ -448,7 +661,7 @@ document.querySelectorAll('.filter').forEach(function(btn){
         hop = Math.sin(p * Math.PI) * 0.34;
         flapBoost = Math.sin(p * Math.PI);
       }
-      bird.position.y = 0.12 + bob + hop;
+      bird.position.y = bob + hop;
       bird.rotation.z = reduced ? 0 : Math.sin(t * 0.9) * 0.02;
 
       lookX += (tLookX - lookX) * Math.min(1, dt * 6);
@@ -470,10 +683,6 @@ document.querySelectorAll('.filter').forEach(function(btn){
         else s = 0.08 + (bp - 0.5) * 2 * 0.92;
         eyeL.scale.y = s; eyeR.scale.y = s;
       }
-
-      shadow.material.opacity = Math.max(0.1, 0.4 - hop * 0.55);
-      var ss = 1 - hop * 0.18;
-      shadow.scale.set(ss, ss, 1);
 
       renderer.render(scene, camera);
     }
