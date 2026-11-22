@@ -83,9 +83,6 @@ section{padding:72px 0;border-top:1px solid var(--line)}
 .project a{color:var(--accent);font-weight:600}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:4px;background:var(--bg)}
-.arch-flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;margin:4px 0;max-width:100%;min-width:0}
-.arch-flow span{border:1px solid var(--line);background:var(--bg);padding:6px 9px;overflow-wrap:anywhere}
-.arch-flow i{font-style:normal;color:var(--accent)}
 .process-visual{border:1px solid var(--line);background:var(--surface);padding:22px}
 .pv-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .pv-stages{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
@@ -124,14 +121,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 .work-tier-head{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 16px;display:flex;align-items:center;gap:14px;font-weight:500}
 .work-tier-head::after{content:"";height:1px;background:var(--line);flex:1}
 .work-tier-head em{font-style:normal;color:var(--accent)}
+.section-head .eyebrow{display:block;margin-bottom:14px}
+.work-tier-intro{margin:-2px 0 18px;color:var(--muted);font-size:14.5px;line-height:1.75;max-width:720px}
+.project .card-links{margin-top:2px}
 .featured-list .project{border-top:3px solid var(--accent)}
 .project .card-links{margin:0;font-size:14px}
-.case-study{border-top:1px solid var(--line);margin-top:2px;padding-top:10px}
-.case-study summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent);padding:6px 0;min-height:36px;list-style-position:outside}
-.case-study summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.cs-body{display:grid;gap:12px;padding:10px 0 4px}
-.cs-item h4{margin:0 0 4px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.cs-item p{margin:0}
 .exp-card ul,.focus-list{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px;line-height:1.75;display:grid;gap:6px}
 .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
 .principle{background:var(--surface);border:1px solid var(--line);padding:22px 20px}
@@ -213,7 +207,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
     </div>
   </section>
   <section id="work">
-    <div class="section-head"><h2>Selected work</h2><p>A collection of products, enterprise systems and technical experiments I&#8217;ve contributed to &#8212; from digital banking infrastructure to mobile applications, data platforms and applied AI. Cards are kept short; the full technical depth lives inside each expandable case study.</p></div>
+    <div class="section-head"><span class="eyebrow">Selected Work</span><h2>Building systems that solve real problems.</h2><p>A selection of software products, enterprise systems, data platforms and applied AI projects I have worked on. Each project reflects a different part of my engineering journey &#8212; from architecture and development to deployment and continuous improvement.</p></div>
     <div class="filters" role="group" aria-label="Filter work">
       <button class="filter" data-filter="all" aria-pressed="true">All</button>
       <button class="filter" data-filter="fintech" aria-pressed="false">Fintech</button>
@@ -222,71 +216,76 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
       <button class="filter" data-filter="ai" aria-pressed="false">AI</button>
     </div>
     <div class="work-tier">
-      <h3 class="work-tier-head"><em>Featured</em> Case studies</h3>
+      <h3 class="work-tier-head"><em>Featured</em> Projects</h3>
       <div class="work-list featured-list">
       <article class="project" data-cat="fintech">
-        <div class="project-top"><div><span class="cat">Fintech / Enterprise Systems</span><h3>Enterprise Systems &amp; Digital Transformation &#8212; engineering digital banking experiences</h3></div><span class="badge">Professional Experience</span></div>
-        <p>Digital banking channels and enterprise integrations — APIs, core banking integration, account opening, payments and structured WhatsApp journeys — presented at an architectural level only.</p>
-        <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">REST APIs</span><span class="tag">SOAP</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Power BI</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>Digital banking and enterprise technology initiatives within financial services — integrating banking systems, developing digital channels and improving how customers access financial services.</p></div><div class="cs-item"><h4>Problem</h4><p>Customers and staff depended on channels and systems that were not well connected: account opening, payments and support journeys needed to work end to end, with data arriving clean enough for backend systems to act on.</p></div><div class="cs-item"><h4>My role</h4><p>Software development, systems integration, technical implementation, testing, troubleshooting and digital project delivery.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>Banking API development and integration, core banking integration, digital account opening services, payment integrations and transaction processing, plus customer support and operational tooling. Structured customer journeys on WhatsApp use the WhatsApp Cloud API and WhatsApp Flows — proper form screens inside the conversation — so data is validated at the field level instead of parsed from free text.</p></div><div class="cs-item"><h4>Engineering decisions</h4><p>Chat for conversation, Flows for anything with fields. Structured input over free text wherever a backend system has to consume the result. Everything is presented at an architectural and functional level only — no confidential data, payloads or internal infrastructure.</p></div><div class="cs-item"><h4>Challenges</h4><p>Integrating systems with very different contracts — REST and SOAP services, a core banking platform and third-party channels — while keeping each journey reliable in production.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>The same structured-journey pattern now serves account opening, merchant payments and custom support. The lesson that repeats: an integration is only finished when its failures are visible and its data is trustworthy.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">Enterprise Software &#183; Digital Banking</span><h3>Enterprise Banking Systems</h3></div><span class="badge">Professional Experience</span></div>
+        <p>Engineering digital banking capabilities, enterprise integrations and API-driven solutions within a regulated financial services environment.</p>
+        <div class="tags"><span class="tag">Finacle</span><span class="tag">REST APIs</span><span class="tag">C#</span><span class="tag">Node.js</span><span class="tag">SQL Server</span><span class="tag">Oracle</span></div>
+        <p class="card-links"><a href="/work/enterprise-banking">Explore Case Study &#8594;</a></p>
+      </article>
 
       <article class="project" data-cat="data">
-        <div class="project-top"><div><span class="cat">Data Engineering / Enterprise Analytics</span><h3>Data Warehouse Engineering &#8212; turning operational data into reliable intelligence</h3></div><span class="badge">Professional Experience</span></div>
-        <p>A layered warehouse and analytics pipeline that turns multi-source operational data into traceable reporting, ending in Power BI.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">PostgreSQL</span><span class="tag">Apache Airflow</span><span class="tag">dbt</span><span class="tag">Parquet</span><span class="tag">Docker</span><span class="tag">Power BI</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>A data warehouse and analytics pipeline integrating operational data sources into a structured reporting environment, ending in Power BI reporting for management.</p></div><div class="cs-item"><h4>Problem</h4><p>Operational data lived across Oracle and SQL Server sources. Reporting built directly on operational systems is fragile, and without shared definitions the same question gets different answers from different reports.</p></div><div class="cs-item"><h4>My role</h4><p>Pipeline design and implementation, transformation modelling, orchestration and reporting infrastructure.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>Python-based extraction (incremental and full), Apache Airflow orchestration, Parquet storage, and dbt transformations through bronze, staging, intermediate and gold layers, with data quality checks and metadata tracking throughout.</p></div><div class="arch-flow" aria-label="Architecture flow"><span>Operational Sources</span><i>&#8594;</i><span>Extraction</span><i>&#8594;</i><span>Bronze</span><i>&#8594;</i><span>Staging</span><i>&#8594;</i><span>Intermediate</span><i>&#8594;</i><span>Gold Marts</span><i>&#8594;</i><span>Power BI</span></div><div class="cs-item"><h4>Engineering decisions</h4><p>Business rules are defined once — with the people who own the business — and encoded in the transformation layers so every downstream model inherits them. Reliable reporting starts with reliable data definitions, consistent transformation rules and traceable pipelines.</p></div><div class="cs-item"><h4>Challenges</h4><p>The plausible-but-wrong business rule: a record with no recent activity looks inactive, until the business confirms it still counts as live. Rules like that have to be agreed and written down, not guessed in code.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>A reporting environment where a number in Power BI can be traced back through gold, intermediate, staging and bronze to its operational source.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">Data Engineering &#183; Analytics</span><h3>Data Warehouse &amp; Analytics Platform</h3></div><span class="badge">Professional Experience</span></div>
+        <p>Designed and implemented a data engineering platform that consolidates operational banking data into structured analytical models for reporting and business intelligence.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Apache Airflow</span><span class="tag">dbt</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">Parquet</span><span class="tag">Power BI</span></div>
+        <p class="card-links"><a href="/work/data-warehouse">Explore Case Study &#8594;</a></p>
+      </article>
 
       <article class="project" data-cat="media">
-        <div class="project-top"><div><span class="cat">Mobile Engineering / Media</span><h3>RIZFM &#8212; building a better mobile radio experience</h3></div><span class="badge">Live &#183; App Store</span></div>
-        <p>A calm iOS radio app for RIZ FM, backed by a Flask station API with stream health checks that catch a dead feed before a listener does.</p>
-        <p class="card-links"><a href="https://apps.apple.com/app/rizfm/id6835637750" target="_blank" rel="noopener">View on App Store &#8594;</a></p>
-        <div class="tags"><span class="tag">Swift / iOS</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Gunicorn</span><span class="tag">Docker</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>RIZFM is a mobile radio application delivering RIZ FM broadcasts to listeners on iOS — &#8220;Radio made calm&#8221; — backed by a station API with health monitoring.</p></div><div class="cs-item"><h4>Problem</h4><p>Listeners needed a calm, reliable way to find and play stations on a phone, and a dead stream should be caught by the system before a listener finds it.</p></div><div class="cs-item"><h4>My role</h4><p>iOS application and backend API, deployment and stream health monitoring.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>The iOS app is supported by a Python and Flask API on SQLite, served by Gunicorn and deployed with Docker Compose, exposing station discovery, search, filtering, pagination and featured stations, with individual and aggregate stream health checks and an API health endpoint.</p></div><div class="cs-item"><h4>Engineering decisions</h4><p>Keep simple systems simple: Flask, SQLite, Gunicorn and Docker are all a station directory with health checks actually needs — no message broker, no microservices. Documentation was written after implementation and checked endpoint by endpoint against the running service.</p></div><div class="cs-item"><h4>Challenges</h4><p>App Store review: the app was rejected first, with the reason held on the review page rather than in the email. Reading the reviewer&#8217;s actual message before changing anything, fixing what was asked and resubmitting got it live two days later.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>Live on the App Store from 21 November 2026 — free, iOS 16.4 and later, Data Not Collected. Shipping is part of the product: the store is another system to engineer around.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">Mobile Development &#183; Backend Engineering</span><h3>RIZFM</h3></div><span class="badge">Live &#183; App Store</span></div>
+        <p>An iOS radio streaming application supported by a custom backend, stream monitoring and production infrastructure.</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Docker</span><span class="tag">Gunicorn</span></div>
+        <p class="card-links"><a href="/work/rizfm">Explore Case Study &#8594;</a> &#183; <a href="https://apps.apple.com/app/rizfm/id6835637750" target="_blank" rel="noopener">View on App Store &#8594;</a></p>
+      </article>
 
       <article class="project" data-cat="ai">
-        <div class="project-top"><div><span class="cat">AI / Media Technology</span><h3>NWITQ &#8212; one story, multiple perspectives</h3></div><span class="badge">MVP &#183; In Progress</span></div>
-        <p>A news intelligence platform that clusters coverage from multiple trusted Ugandan outlets into one evolving story, with sources shown.</p>
-        <p class="card-links"><a href="https://lnkd.in/gN_i59cD" target="_blank" rel="noopener">Join the Waitlist &#8594;</a> &#183; <a href="https://lnkd.in/gaKAcyRk" target="_blank" rel="noopener">See an example story &#8594;</a></p>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">OpenAI</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>NWITQ is a news intelligence platform that brings together coverage from multiple trusted Ugandan outlets and presents related reporting as one evolving story.</p></div><div class="cs-item"><h4>Problem</h4><p>Following one story means jumping between websites, reading repeated headlines and piecing together the full picture yourself — what sources agree on, what only one reports, where they differ and how the story develops.</p></div><div class="cs-item"><h4>My role</h4><p>Product design, React Native application and AI clustering pipeline.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>Multi-source news aggregation with AI-powered story clustering (OpenAI) grouping coverage of the same events, with source attribution on everything, story timelines and a daily digest.</p></div><div class="cs-item"><h4>Engineering decisions</h4><p>The goal is not to replace news organisations or decide which source is &#8216;right&#8217;. The product shows agreement, single-source reporting and differences side by side, with sources visible, and lets the reader judge.</p></div><div class="cs-item"><h4>Challenges</h4><p>The core design challenge is clustering: recognising that differently-worded reports from different outlets describe the same event, and keeping that grouping honest as the story develops.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>MVP in progress. A waitlist is open and an example story is published — honest feedback, including that the idea is unnecessary, is welcome.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">AI &#183; News Intelligence</span><h3>NWITQ</h3></div><span class="badge">MVP &#183; In Progress</span></div>
+        <p>An AI-powered news intelligence platform exploring how stories from multiple Ugandan publishers can be aggregated, clustered and presented as a unified view of the news.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">AI/LLM integrations</span><span class="tag">Data processing</span><span class="tag">React Native</span></div>
+        <p class="card-links"><a href="/work/nwitq">Explore Case Study &#8594;</a> &#183; <a href="https://lnkd.in/gN_i59cD" target="_blank" rel="noopener">Join the Waitlist &#8594;</a> &#183; <a href="https://lnkd.in/gaKAcyRk" target="_blank" rel="noopener">See an example story &#8594;</a></p>
+      </article>
       </div>
     </div>
     <div class="work-tier">
-      <h3 class="work-tier-head">More detailed work</h3>
+      <h3 class="work-tier-head">Other Things I&#8217;m Building</h3>
+      <p class="work-tier-intro">Beyond my primary engineering work, I explore product ideas and technologies across personal finance, applied AI, ecommerce and digital platforms.</p>
       <div class="work-list">
       <article class="project" data-cat="fintech">
-        <div class="project-top"><div><span class="cat">Fintech / Personal Finance</span><h3>InToday &#8212; helping people make better daily money decisions</h3></div><span class="badge">Building in Public</span></div>
-        <p>A personal finance app built around Safe Today — one daily spendable number after bills, savings and commitments are accounted for.</p>
-        <div class="tags"><span class="tag">iOS</span><span class="tag">Product design</span><span class="tag">Backend &amp; sync</span><span class="tag">Fintech</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>InToday is a personal finance application centred on one concept: Safe Today — how much you can safely spend today after bills, savings and commitments are accounted for.</p></div><div class="cs-item"><h4>Problem</h4><p>Most budgeting fails on pacing, not totals: people feel rich on the 1st and broke by the 15th because nothing translates a monthly budget into a daily decision.</p></div><div class="cs-item"><h4>My role</h4><p>Product concept, specification, iOS experience design and backend sync service.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>Each plan runs from the 1st to month-end and is payday-aware: salary landing on the last business day of the previous month funds the next month&#8217;s plan. Locked savings can split across named goals; Safe Today depends on the total locked. Tracking is offline-first with backend synchronisation.</p></div><div class="cs-item"><h4>Engineering decisions</h4><p>Logging an expense is deliberately three taps — Amount &#8594; Tag &#8594; Done — because a finance habit dies if logging is slow. Sync is treated as the hard part: stable IDs and idempotent writes, so a retried upload updates the same record instead of duplicating it.</p></div><div class="cs-item"><h4>Challenges</h4><p>Keeping a spec as the single source of truth while the app is built screen by screen — when spec and build disagree, stop and decide rather than letting drift decide.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>In active development, built in public: product spec, app build and a live backend sync service. The mascot is Into the pangolin — sleek and unhurried, like the pace the app teaches.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">Personal Finance &#183; Mobile Product</span><h3>InToday</h3></div><span class="badge">Building in Public</span></div>
+        <p>A personal finance concept focused on daily spending guidance, payday-aware budgeting and practical money management.</p>
+        <p class="card-links"><a href="/work/intoday">View Project &#8594;</a></p>
+      </article>
 
       <article class="project" data-cat="ai">
-        <div class="project-top"><div><span class="cat">Applied AI / Computer Vision</span><h3>MAL AI &#8212; applying computer vision to health screening</h3></div><span class="badge">Professional Experience</span></div>
-        <p>A mobile app integrating an object-detection model to support malaria screening workflows on a phone — screening support, not a diagnostic product.</p>
-        <div class="tags"><span class="tag">Object detection</span><span class="tag">Mobile ML</span><span class="tag">Computer vision</span><span class="tag">Health</span></div>
-      <details class="case-study"><summary>Case study — overview, decisions &amp; lessons</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>At MAL AI I built a mobile application integrating an object-detection model for malaria parasite detection — applying machine learning and computer vision to a real screening workflow on a phone.</p></div><div class="cs-item"><h4>Problem</h4><p>Screening workflows need support that works where the work happens — on mobile devices, in real conditions — without overstating what a model can safely decide.</p></div><div class="cs-item"><h4>My role</h4><p>Mobile application development and object-detection model integration.</p></div><div class="cs-item"><h4>Architecture &amp; approach</h4><p>Object detection with model inference integrated into the mobile application, using on-device processing where supported, so capture and analysis fit a phone-based workflow.</p></div><div class="cs-item"><h4>Engineering decisions</h4><p>This is framed honestly as screening support, not a clinically validated diagnostic product. When a result is uncertain, the system refers to a lab rather than forcing an answer — the same rule I apply to AI support tools: automation earns trust by knowing when to stop.</p></div><div class="cs-item"><h4>Challenges</h4><p>Making a model useful inside a real mobile workflow — inference, capture conditions and the hand-off to human review — rather than as a standalone demo.</p></div><div class="cs-item"><h4>Outcome &amp; lessons</h4><p>A working mobile integration of an object-detection model for malaria parasite screening support, and a lasting rule: never claim diagnostic accuracy without independently verified evidence.</p></div></div></details></article>
+        <div class="project-top"><div><span class="cat">Applied AI &#183; Computer Vision</span><h3>MAL AI</h3></div><span class="badge">Professional Experience</span></div>
+        <p>Exploring computer vision techniques for malaria parasite image analysis and screening support.</p>
+        <p class="card-links"><a href="/work/mal-ai">View Project &#8594;</a></p>
+      </article>
+
+      <article class="project" data-cat="fintech">
+        <div class="project-top"><div><span class="cat">Fintech &#183; Product Exploration</span><h3>Obin Finance</h3></div><span class="badge">Exploration / MVP</span></div>
+        <p>An early-stage exploration of financial technology and digital financial products.</p>
+        <p class="card-links"><a href="/work/obin-finance">View Project &#8594;</a></p>
+      </article>
       </div>
     </div>
     <div class="work-tier">
-      <h3 class="work-tier-head">Ventures &amp; explorations</h3>
+      <h3 class="work-tier-head">Ventures</h3>
       <div class="work-list">
       <article class="project" data-cat="media">
-        <div class="project-top"><div><span class="cat">Product Engineering / Entrepreneurship</span><h3>Kakebe Technologies &#8212; building practical software products for African users</h3></div><span class="badge">Active Venture</span></div>
-        <p>The venture I co-founded and lead as CTO — accessible, maintainable products for local and regional audiences.</p>
+        <div class="project-top"><div><span class="cat">Product Engineering / Entrepreneurship</span><h3>Kakebe Technologies</h3></div><span class="badge">Active Venture</span></div>
+        <p>The venture I co-founded and lead as CTO &#8212; accessible, maintainable products for local and regional audiences.</p>
         <div class="tags"><span class="tag">RIZFM</span><span class="tag">Kakebe Shop</span><span class="tag">FaithFellows</span><span class="tag">Lango App</span><span class="tag">Sentry</span><span class="tag">PostHog</span></div>
-      <details class="case-study"><summary>Overview &amp; my role</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>Kakebe Technologies is the venture I co-founded and lead as CTO, building practical software products for local and regional audiences — RIZFM (live on the App Store), the Kakebe Shop app, FaithFellows and the Lango App.</p></div><div class="cs-item"><h4>My role</h4><p>Technical strategy and product engineering: architecture, mobile and backend development, infrastructure and deployment, monitoring and continuous improvement. The Shop app is instrumented with Sentry for error monitoring and PostHog for product analytics.</p></div></div></details></article>
+        <p class="card-links"><a href="#experience">See my role in Experience &#8594;</a></p>
+      </article>
 
       <article class="project" data-cat="media">
-        <div class="project-top"><div><span class="cat">Music Technology / Entrepreneurship</span><h3>Mwonya &#8212; building technology for African music and creators</h3></div><span class="badge">In Development</span></div>
+        <div class="project-top"><div><span class="cat">Music Technology / Entrepreneurship</span><h3>Mwonya</h3></div><span class="badge">In Development</span></div>
         <p>A music streaming platform in development, centred on Ugandan artists, discovery and creator tools.</p>
         <div class="tags"><span class="tag">Music streaming</span><span class="tag">Creator tools</span><span class="tag">Uganda</span></div>
-      <details class="case-study"><summary>Overview &amp; my role</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>Through Mwonya Technologies, where I&#8217;m co-owner and CTO, I&#8217;m working on a music streaming platform centred around Ugandan artists and creators — discovery, digital distribution and creator-focused tools, approached as music infrastructure rather than just a playback app. The product is still under development.</p></div><div class="cs-item"><h4>My role</h4><p>Technical direction and product development.</p></div></div></details></article>
-
-      <article class="project" data-cat="fintech">
-        <div class="project-top"><div><span class="cat">Fintech</span><h3>Obin Finance &#8212; exploring focused financial technology products</h3></div><span class="badge">Exploration / MVP</span></div>
-        <p>An early-stage fintech exploration, kept brief until there is a demonstrable feature set to show.</p>
-        <div class="tags"><span class="tag">Fintech</span><span class="tag">MVP</span><span class="tag">Exploration</span></div>
-      <details class="case-study"><summary>Overview &amp; my role</summary><div class="cs-body"><div class="cs-item"><h4>Overview</h4><p>Obin Finance is an early-stage fintech exploration focused on practical financial tools. It stays brief here until the product has a clearly defined and demonstrable working feature set.</p></div><div class="cs-item"><h4>My role</h4><p>Concept and early product exploration.</p></div><div class="cs-item"><h4>Stack</h4><p>Fintech &#183; MVP &#183; Exploration — architecture follows a proven problem, not the other way round.</p></div></div></details></article>
+        <p class="card-links"><a href="#experience">See my role in Experience &#8594;</a></p>
+      </article>
       </div>
     </div>
   </section>
