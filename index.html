@@ -37,44 +37,37 @@ img,svg{max-width:100%}a{color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .btn:hover{border-color:var(--ink)}
-.hero{padding:52px 0 64px}
-.hero-meta{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:11px 0;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.hero-meta b{color:var(--ink);font-weight:500}
+.hero{padding:40px 0 56px}
 .eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.hero .eyebrow{display:block;margin-top:48px}
-h1{font-size:clamp(32px,10vw,88px);line-height:1;letter-spacing:-.04em;font-weight:800;margin:24px 0 0}
+.hero-top{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:48px;align-items:start}
+.hero-main{min-width:0}
+.hero .eyebrow{display:block}
+h1{font-size:clamp(38px,5.6vw,68px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:18px 0 0}
 h1 .h1-line{display:block}
-h1 .h1-sep{color:var(--muted)}
+h1 .h1-sep{color:var(--muted);font-weight:300}
 h1 .amp{color:var(--accent)}
-.hero-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:20px 72px;margin-top:44px;align-items:start}
-.hero-lead{font-size:23px;line-height:1.45;font-weight:600;letter-spacing:-.015em;margin:0;max-width:520px}
-.lede{font-size:16.5px;line-height:1.75;color:var(--muted);margin:0;max-width:560px}
-.hero-cta{display:flex;justify-content:space-between;align-items:center;gap:18px 36px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:26px}
-.hero-loc{display:flex;align-items:center;gap:10px;margin:0;font-size:14.5px;color:var(--muted)}
+.hero-lead{font-size:21px;line-height:1.5;font-weight:600;letter-spacing:-.015em;margin:24px 0 0;max-width:560px}
+.lede{font-size:16px;line-height:1.75;color:var(--muted);margin:14px 0 0;max-width:560px}
+.hero-loc{display:flex;align-items:center;gap:9px;margin:22px 0 0;font-size:14px;color:var(--muted);line-height:1.5}
 .loc-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
 .hero-loc strong{color:var(--ink);font-weight:600}
-.cta-links{display:flex;align-items:center;gap:12px 30px;flex-wrap:wrap}
+.cta-links{display:flex;align-items:center;gap:10px 24px;flex-wrap:wrap;margin-top:20px}
 .cta-link{display:inline-flex;align-items:center;gap:7px;min-height:44px;text-decoration:none;font-weight:600;font-size:14.5px;color:var(--ink)}
 .cta-link .arr{color:var(--accent);transition:transform .15s ease}
 .cta-link:hover{color:var(--accent)}
 .cta-link:hover .arr{transform:translateX(3px)}
-.sysview{margin-top:64px}
-.sv-head{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:12px 0;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.sv-head b{color:var(--ink);font-weight:500}
-.sv-cols{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
-.sv-col{padding:22px 24px 26px 0;border-bottom:1px solid var(--line);min-width:0}
-.sv-col+.sv-col{border-left:1px solid var(--line);padding-left:24px}
-.sv-num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;color:var(--accent);display:block;margin-bottom:16px}
-.sv-col b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.01em}
-.sv-desc{display:block;font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:6px}
-.hero-index{display:flex;align-items:center;gap:8px 30px;flex-wrap:wrap;margin-top:36px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-.hero-index .ix-label{color:var(--ink)}
-.hero-index a{display:inline-flex;gap:8px;align-items:center;min-height:32px;text-decoration:none;color:var(--muted)}
-.hero-index a i{font-style:normal;color:var(--accent)}
-.hero-index a:hover{color:var(--ink)}
-.glance{margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.sysview{background:var(--surface);border:1px solid var(--line);padding:0;min-width:0}
+.sv-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:16px 20px 14px;border-bottom:1px solid var(--line);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sv-head b{color:var(--ink);font-weight:600;letter-spacing:.12em}
+.sv-cols{list-style:none;margin:0;padding:6px 20px 10px}
+.sv-col{display:grid;grid-template-columns:36px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line);min-width:0}
+.sv-col:last-child{border-bottom:0}
+.sv-num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;color:var(--accent);padding-top:3px}
+.sv-col b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.35}
+.sv-desc{display:block;font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:3px}
+.glance{margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
 .glance h3{margin:0 0 18px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.glance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px 28px}
+.glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px 28px}@media(max-width:900px){.glance-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:560px){.glance-grid{grid-template-columns:1fr 1fr}}
 .glance-item span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px}.glance-item strong{display:block;font-size:14px;line-height:1.55}
 section{padding:72px 0;border-top:1px solid var(--line)}
 .section-head{margin-bottom:40px;max-width:760px}
@@ -165,8 +158,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 #contact .contact{margin-top:0}
 @media(max-width:900px){.principles{grid-template-columns:1fr 1fr}.lead-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.principles{grid-template-columns:1fr}}
-@media(max-width:900px){.hero-intro,.about,.contact{grid-template-columns:1fr}.sv-cols{grid-template-columns:1fr 1fr}.sv-col:nth-child(odd){border-left:0;padding-left:0}.snapshot-grid{grid-template-columns:1fr 1fr}.work-list{grid-template-columns:minmax(0,1fr)}.thoughts{grid-template-columns:1fr 1fr}.pv-stages{grid-template-columns:repeat(3,1fr)}.nav{display:none}.mobile-nav{display:flex;gap:18px;flex-wrap:wrap;padding:10px 0 12px;border-top:1px solid var(--line)}.mobile-nav a{text-decoration:none;font-size:13px;font-weight:500;color:var(--muted)}.project{padding:22px 18px}}
-@media(max-width:560px){.sv-cols{grid-template-columns:1fr}.sv-cols .sv-col{border-left:0;padding-left:0}.snapshot-grid,.thoughts{grid-template-columns:1fr}.pv-stages{grid-template-columns:1fr 1fr}.wrap{padding:0 20px}.hero{padding:48px 0 48px}section{padding:56px 0}.contact{padding:28px 22px}}
+@media(max-width:900px){.hero-top,.about,.contact{grid-template-columns:1fr}.hero-top{gap:32px}.snapshot-grid{grid-template-columns:1fr 1fr}.work-list{grid-template-columns:minmax(0,1fr)}.thoughts{grid-template-columns:1fr 1fr}.pv-stages{grid-template-columns:repeat(3,1fr)}.nav{display:none}.mobile-nav{display:flex;gap:18px;flex-wrap:wrap;padding:10px 0 12px;border-top:1px solid var(--line)}.mobile-nav a{text-decoration:none;font-size:13px;font-weight:500;color:var(--muted)}.project{padding:22px 18px}}
+@media(max-width:560px){.snapshot-grid,.thoughts{grid-template-columns:1fr}.pv-stages{grid-template-columns:1fr 1fr}.wrap{padding:0 20px}.hero{padding:32px 0 44px}h1{font-size:40px}section{padding:56px 0}.contact{padding:28px 22px}.glance-grid{grid-template-columns:1fr 1fr}.sysview{margin-top:4px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta-link .arr{transition:none}}
 </style>
 </head>
@@ -179,31 +172,29 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 
 <main id="top" class="wrap">
   <div class="hero">
-    <div class="hero-meta"><span><b>Hafiz Alyanga</b> &#8212; Portfolio</span><span>Software &#183; Data &#183; AI</span><span>Kampala, Uganda</span></div>
-    <span class="eyebrow">Technology Leadership &#183; Software &#183; Data &#183; AI</span>
-    <h1><span class="h1-line">Technology Lead <span class="h1-sep">|</span></span><span class="h1-line">Software, Data <span class="amp">&amp;</span> AI</span></h1>
-    <div class="hero-intro">
-      <p class="hero-lead">I build scalable software products, intelligent systems and data platforms.</p>
-      <p class="lede">From enterprise banking integrations and data engineering to mobile applications and applied AI, I work across the technology lifecycle &#8212; turning complex problems into practical solutions that work in the real world.</p>
-    </div>
-    <div class="hero-cta">
-      <p class="hero-loc"><i class="loc-dot" aria-hidden="true"></i><span>Based in <strong>Kampala, Uganda</strong>. Building for Africa and beyond.</span></p>
-      <div class="cta-links">
-        <a class="btn btn-primary" href="#work">Explore My Work</a>
-        <a class="cta-link" href="data:application/octet-stream;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA3IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNyAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0F1dGhvciAoSGFmaXogQWx5YW5nYSkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MTEyMjEzMDUwMyswMycwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MTEyMjEzMDUwMyswMycwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoSGFmaXogQWx5YW5nYSBcMjA0IENWKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA0IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyODYxCj4+CnN0cmVhbQpHYiEjXj4+czp0JnE5IkZvTVoqP0QrL1slZnA/M09MRmBSW1NeIWBVXlBvIm80QC5DRCw4aFRkZjVKdW9BLitLTzhSVVNRIWsnck5nTjdyRG9kQ1RDcGdeO1xAMSRzNUsiJVduPT5sLDhAKEQiIlVDMCUhbT0hZnNXZzAvZTMxZkZxJi1URk1ScjNjJmlHSElmWGhKXylAQ19bPXBnRF9zaV1SdWdYWWAhazhsPC8vW08lZCk5KHI3NmFjcTQrNipfYj05RmJKJiJcLTZ1Tj9AXGc5cmxsXUJZPmVOMkVbdFQ7S0EkPVFGbnU8Mkwvb0wjRFVebmZvPzssaG1QWV5OczxLIzBlIUYhQTIyN1UoJTtFJms9TylCUTZhK3NAc1VXWVNsO25SPFc6LkBwJyVWLmZrYWxcRDpON21OMVI/L25iZiFJITpHRXNIPidqaSUvdUhkM0N1YUg1L2VlKiNfOTN1SXIjOj5yV0o9ZW0kOipsMUlAXElBX0doKyR1cVd0JjllNiItRGtGTC9NMyVHXCJvWkcoJnMraF9AZTtqRDpTKmBrPG1UKF8iUS0xXjshKmVsdDdZPFtAJmRVLzVwSl5qZiFqQ146PzlmKSVPdXI0cScmT3EhJT9pRTpeZ3IlJ1RmTj44bi1oIW5ZKkJnUVdVOEI3JCRaT2IyPVg+Qz0ocTYzPiYhbnBSXVsiT0QpN0ZuRURrKlVhcl1HIzJNVkdhT2AqYylrW2QkV2JRZ3I+aDJnTF1bPmNrbDowLlVLTCxyMTFwb2o1UmA7OkRVJyV0Y2o1TT87OjtmTyZkaHFaMFArQllfY2BsSWhZcklzVW11Umw2NHNZQWNCRTkkVnVdRDArX1huJzkxVUkuO0AvU1BVZispcVpuZiI9TGFNSHUvXGhOJU1jaVVhUiNwWjhJYThbKjo6Wko/OS9yQ1M2KmJPQWRRQTA2VTRibT1DUzYvNkRnSzhVZ3N1a1M9Y1VvZD4vNUI0T0hYV1FAREtmPGlKUzE2UEIpJiRJcTcxSTcqbGdEKEswTEJzJThBLFRjRnUhYCpBdTtOUGdII1sxZyowQE9QYjRQKF5lSGlIWUIrInEyIWZWLC5uYzRBUWR1MExgREVKO2YqJFsiOG43JDgsKT0pLUFLZF1ZbDJkPU1dNT80dHJTUjlBZjkzUVQoQkFqNjVkaiJHVkR0P1grI0tkOyddYENYclM3RjA/VlIqMT8zWS5iZ2RJPDw5SjxzLkM+Y20tZzBjTlBhQShsWGAqOj1VLytjVUVlNmMiJXBZdEZgTVReRUdoYCQ6V0xjSHBYLkVVbmE1ZmNTJ0UtREUlWTlxWyE+XjZATCRkYWM6JzIybUw9SkBiVS9qOVc3XHVCKnFvKz8xQTxMNVYkSUpdQiJvXjtmVj1KQUAqQExMb2tiTlFRSylrMVZBIigwUCMjMUhSbU9RJmAsQixPY1QtI0tRMUBARGF0NTUmOURiWT9tQ3VWN0ErRT0tZCcscTgmT0suJ1pBJXRDZjtRM09aaTJCM28qRCs5PykpLm1xLkg1PChoKCtiP0FPRFtHJyNsMmZZVW5GMW41QDsoUDxdOUohZExSMjlhXURlZ210WkEiPUw7UVJvQmdYMSEvMis8OmlxQVtKYCI0MExuLzpCJXNrXE4pbk1FLS9DRiVDWTYxIWxnW2BqVElfT0EyW2k6PC1QYE9NWXJwYyJvQW1fZjJWYlRKdGhBSy5pPU4kWSRtR29YbztMQz1WSTg6YW0jcE1bdW9GIz1sdWpdOyxhbFRCXWRGWE4kO0VFOTxfLkZMVHVpUlhwJEJxOENEPy0/ITZjPWRycjhmWUlScTc+QSt1JFJfZTZGYWY8M1YxRTlMUSllaWFdJipXbz44VkZZJjR1cCxccS9UQSgrKVViLC5VNF1RPDssRDBVU09kXiM3T1ZEV0FkKT5eXWxdITtwWiRGVk1ySVlQQFJVVF0rV1o3JDlnJGY/ZGYtLjwyR1NlUFJBbkVNLC4vPC5ycGVFT0J1ZWo+LytUYyFvIyllUzBzI1IrKEUvS2M3bicnJChGbU4oSGUtcklXISFFPlw9Lj5dL0JBcztUcCouMmhxNkZPayEtUD1gXGorWTo5MFdTR2Y8QT5VJEBzPTQpRyQ+LUppKjxqWmJQbms1U0RWPmAjVSg2TjE7akJfW15EXCk4aG5Nb0JkNldTaSVqWWMyJGtDWlh0LFtYUkwpTGZFPDkmU1pNb0VPYVJgYEdWVTQic3BLPTcrP2A7Qi8oTjpTVWdJOzYrQGdmNTpVXlZWPllIM3MmJk1pJi87amtAIU5jWik7dCcybF5sbnJkXllfP2Q4b18nWFVdMFVvKTU0aStZJWtXJjxsWTYtYj9tZVFbMCNZJj0/PEg0SGM0XmtbTVNock0jWCZpRj5uVGs/S0VUWXE5ZyxXMlhMWTsmRD5GRm8yc24tWVJfUkw2VkBKMnQ/c2NNO1liXmFhKVMiKkhjXlRUPS0lLjRRbUtCLGVZVTc1LmxJOihfJCtkMSU6b1RqbSQ7UGZQcGo2LklHRXBMYDxSYk09KVIsKSw3OjZLLVkzJWB1IjFSQihCR1I+N0RJVWF1XnFeLTY+W05VQD5EXTlvXHAlbjNudThVUnJtRHM8KThkUy9xKUU/OENrJiY0PEgoJkMhKSMoSUAmRCs0S3ByWG1KXFtfaFNzX3AvV1VJaW1ZKVlKVSRfU2s2LzEyPXIhPjpjM2heb0piPmIlSzI8JF1icEJLaXBcXV9zJD0kJCIrLGdOXjIiWCEmOXBCIlx1OzxwNWNSVHMpTU9xITNecSdtLEVRQ18vNkliLT4qJi5uPD91Uyc5aD5Pb2NoT09FLWthb0ZsXDsnW0giP0xVXT8yRFg0SzlXPjhkY1FWPDI+YWRhJS1McFFSdSVnRzI2SGRxTF9NX1RTZG1MNVEmMDwxY2RoOVlsRmZbWCQ4Jzs8Si9pbEFGJGQ0MCUnUklKa1R0KldeWThDXTpyN2gsdE4tX1ZsIV5aJm4rPWhKdU80QDg9WFxkbDYtbDU+Vy50SU9qKDhpYFltNz9iW148OzgnUDtoV0YzIiw+alIwa1goVicxcWBdIkIxaltcL0cpXWdmWzgzUWEvTWgpJ0xvXSdJZ0NMMCpVVypjSU1kZjgobDtuWSE7cSNdT25WInMrRzdZR1NnUUZXKXFLOidkUTFbc3E/bS5MPVI5R0RbUVUmTCxcXCg/Zlo6UUtGJUZBZSsoZ1lbIjc/aGVCJVZIWExvaWlYVFRnblVDa1RXRGZrXmtAcCFCLy1pRHNBRlY2cTgmWGhCa25Xa3VVUDwiO1VpODtxJTFuV2wjNVtwLDQqdSYqLFNhcWxza2hucF1RRmhRUSc/TmVKSXBYbmBaLkkqMSNyRkc5KmFpbVthV1lIZGU4NydgPkw0NWgtQD42TzFwLCoxO2RNXl5KKFNeIUFvMVZoKWNsLDEyRUZgYDpOWUExaTM8SzNcX0pJT3MmZy1FJlZcdTZlYWw6PU8sWnJHPG9MZmFFVkQra1BsV1tDVj4kU1xEJm1uU1ppNGxkPyFQLUFqVFU7MFlIRlJDUDQla19mPGRiIjovKDZUMGNlS2gsLT5MIWk7W1hrRWw1NHU3KyZ1Si1AJzRBMWxcKzBGTlpOZkMoRFlqNi8wMWVwITU5MTImaz5yYjZHa0ovcWJnXWcncjcvLVNocCtGQmA/MEBnQ0NFUj9yVXQuSFdySjpQcGEpNityUT5NMSdMQ1lVLU1uKVooSkMwVmVNRzszPF1kZlozNDJKXVZhNCVvZ0VUT0tdbWcjJ05GclJ+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDkKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMDIgMDAwMDAgbiAKMDAwMDAwMDIwOSAwMDAwMCBuIAowMDAwMDAwMzIxIDAwMDAwIG4gCjAwMDAwMDA1MjQgMDAwMDAgbiAKMDAwMDAwMDU5MiAwMDAwMCBuIAowMDAwMDAwODgwIDAwMDAwIG4gCjAwMDAwMDA5MzkgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8MTg0ZTdiZDQ1Yjk5OTE1MGIxYjM0NzdkZDFkOTAxYzE+PDE4NGU3YmQ0NWI5OTkxNTBiMWIzNDc3ZGQxZDkwMWMxPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA2IDAgUgovUm9vdCA1IDAgUgovU2l6ZSA5Cj4+CnN0YXJ0eHJlZgozODkxCiUlRU9GCg==" download="Hafiz-Alyanga-CV.pdf">Download CV <span class="arr" aria-hidden="true">&#8595;</span></a>
-        <a class="cta-link" href="mailto:pkasemer@gmail.com">Get in Touch <span class="arr" aria-hidden="true">&#8594;</span></a>
+    <div class="hero-top">
+      <div class="hero-main">
+        <span class="eyebrow">Technology Leadership &#183; Software &#183; Data &#183; AI</span>
+        <h1><span class="h1-line">Technology Lead <span class="h1-sep">|</span></span><span class="h1-line">Software, Data <span class="amp">&amp;</span> AI</span></h1>
+        <p class="hero-lead">I build scalable software products, intelligent systems and data platforms.</p>
+        <p class="lede">From enterprise banking integrations and data engineering to mobile applications and applied AI, I work across the technology lifecycle &#8212; turning complex problems into practical solutions that work in the real world.</p>
+        <p class="hero-loc"><i class="loc-dot" aria-hidden="true"></i><span>Based in <strong>Kampala, Uganda</strong>. Building for Africa and beyond.</span></p>
+        <div class="cta-links">
+          <a class="btn btn-primary" href="#work">Explore My Work</a>
+          <a class="cta-link" href="data:application/octet-stream;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA3IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNyAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0F1dGhvciAoSGFmaXogQWx5YW5nYSkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MTEyMjEzMDUwMyswMycwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MTEyMjEzMDUwMyswMycwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoSGFmaXogQWx5YW5nYSBcMjA0IENWKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA0IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyODYxCj4+CnN0cmVhbQpHYiEjXj4+czp0JnE5IkZvTVoqP0QrL1slZnA/M09MRmBSW1NeIWBVXlBvIm80QC5DRCw4aFRkZjVKdW9BLitLTzhSVVNRIWsnck5nTjdyRG9kQ1RDcGdeO1xAMSRzNUsiJVduPT5sLDhAKEQiIlVDMCUhbT0hZnNXZzAvZTMxZkZxJi1URk1ScjNjJmlHSElmWGhKXylAQ19bPXBnRF9zaV1SdWdYWWAhazhsPC8vW08lZCk5KHI3NmFjcTQrNipfYj05RmJKJiJcLTZ1Tj9AXGc5cmxsXUJZPmVOMkVbdFQ7S0EkPVFGbnU8Mkwvb0wjRFVebmZvPzssaG1QWV5OczxLIzBlIUYhQTIyN1UoJTtFJms9TylCUTZhK3NAc1VXWVNsO25SPFc6LkBwJyVWLmZrYWxcRDpON21OMVI/L25iZiFJITpHRXNIPidqaSUvdUhkM0N1YUg1L2VlKiNfOTN1SXIjOj5yV0o9ZW0kOipsMUlAXElBX0doKyR1cVd0JjllNiItRGtGTC9NMyVHXCJvWkcoJnMraF9AZTtqRDpTKmBrPG1UKF8iUS0xXjshKmVsdDdZPFtAJmRVLzVwSl5qZiFqQ146PzlmKSVPdXI0cScmT3EhJT9pRTpeZ3IlJ1RmTj44bi1oIW5ZKkJnUVdVOEI3JCRaT2IyPVg+Qz0ocTYzPiYhbnBSXVsiT0QpN0ZuRURrKlVhcl1HIzJNVkdhT2AqYylrW2QkV2JRZ3I+aDJnTF1bPmNrbDowLlVLTCxyMTFwb2o1UmA7OkRVJyV0Y2o1TT87OjtmTyZkaHFaMFArQllfY2BsSWhZcklzVW11Umw2NHNZQWNCRTkkVnVdRDArX1huJzkxVUkuO0AvU1BVZispcVpuZiI9TGFNSHUvXGhOJU1jaVVhUiNwWjhJYThbKjo6Wko/OS9yQ1M2KmJPQWRRQTA2VTRibT1DUzYvNkRnSzhVZ3N1a1M9Y1VvZD4vNUI0T0hYV1FAREtmPGlKUzE2UEIpJiRJcTcxSTcqbGdEKEswTEJzJThBLFRjRnUhYCpBdTtOUGdII1sxZyowQE9QYjRQKF5lSGlIWUIrInEyIWZWLC5uYzRBUWR1MExgREVKO2YqJFsiOG43JDgsKT0pLUFLZF1ZbDJkPU1dNT80dHJTUjlBZjkzUVQoQkFqNjVkaiJHVkR0P1grI0tkOyddYENYclM3RjA/VlIqMT8zWS5iZ2RJPDw5SjxzLkM+Y20tZzBjTlBhQShsWGAqOj1VLytjVUVlNmMiJXBZdEZgTVReRUdoYCQ6V0xjSHBYLkVVbmE1ZmNTJ0UtREUlWTlxWyE+XjZATCRkYWM6JzIybUw9SkBiVS9qOVc3XHVCKnFvKz8xQTxMNVYkSUpdQiJvXjtmVj1KQUAqQExMb2tiTlFRSylrMVZBIigwUCMjMUhSbU9RJmAsQixPY1QtI0tRMUBARGF0NTUmOURiWT9tQ3VWN0ErRT0tZCcscTgmT0suJ1pBJXRDZjtRM09aaTJCM28qRCs5PykpLm1xLkg1PChoKCtiP0FPRFtHJyNsMmZZVW5GMW41QDsoUDxdOUohZExSMjlhXURlZ210WkEiPUw7UVJvQmdYMSEvMis8OmlxQVtKYCI0MExuLzpCJXNrXE4pbk1FLS9DRiVDWTYxIWxnW2BqVElfT0EyW2k6PC1QYE9NWXJwYyJvQW1fZjJWYlRKdGhBSy5pPU4kWSRtR29YbztMQz1WSTg6YW0jcE1bdW9GIz1sdWpdOyxhbFRCXWRGWE4kO0VFOTxfLkZMVHVpUlhwJEJxOENEPy0/ITZjPWRycjhmWUlScTc+QSt1JFJfZTZGYWY8M1YxRTlMUSllaWFdJipXbz44VkZZJjR1cCxccS9UQSgrKVViLC5VNF1RPDssRDBVU09kXiM3T1ZEV0FkKT5eXWxdITtwWiRGVk1ySVlQQFJVVF0rV1o3JDlnJGY/ZGYtLjwyR1NlUFJBbkVNLC4vPC5ycGVFT0J1ZWo+LytUYyFvIyllUzBzI1IrKEUvS2M3bicnJChGbU4oSGUtcklXISFFPlw9Lj5dL0JBcztUcCouMmhxNkZPayEtUD1gXGorWTo5MFdTR2Y8QT5VJEBzPTQpRyQ+LUppKjxqWmJQbms1U0RWPmAjVSg2TjE7akJfW15EXCk4aG5Nb0JkNldTaSVqWWMyJGtDWlh0LFtYUkwpTGZFPDkmU1pNb0VPYVJgYEdWVTQic3BLPTcrP2A7Qi8oTjpTVWdJOzYrQGdmNTpVXlZWPllIM3MmJk1pJi87amtAIU5jWik7dCcybF5sbnJkXllfP2Q4b18nWFVdMFVvKTU0aStZJWtXJjxsWTYtYj9tZVFbMCNZJj0/PEg0SGM0XmtbTVNock0jWCZpRj5uVGs/S0VUWXE5ZyxXMlhMWTsmRD5GRm8yc24tWVJfUkw2VkBKMnQ/c2NNO1liXmFhKVMiKkhjXlRUPS0lLjRRbUtCLGVZVTc1LmxJOihfJCtkMSU6b1RqbSQ7UGZQcGo2LklHRXBMYDxSYk09KVIsKSw3OjZLLVkzJWB1IjFSQihCR1I+N0RJVWF1XnFeLTY+W05VQD5EXTlvXHAlbjNudThVUnJtRHM8KThkUy9xKUU/OENrJiY0PEgoJkMhKSMoSUAmRCs0S3ByWG1KXFtfaFNzX3AvV1VJaW1ZKVlKVSRfU2s2LzEyPXIhPjpjM2heb0piPmIlSzI8JF1icEJLaXBcXV9zJD0kJCIrLGdOXjIiWCEmOXBCIlx1OzxwNWNSVHMpTU9xITNecSdtLEVRQ18vNkliLT4qJi5uPD91Uyc5aD5Pb2NoT09FLWthb0ZsXDsnW0giP0xVXT8yRFg0SzlXPjhkY1FWPDI+YWRhJS1McFFSdSVnRzI2SGRxTF9NX1RTZG1MNVEmMDwxY2RoOVlsRmZbWCQ4Jzs8Si9pbEFGJGQ0MCUnUklKa1R0KldeWThDXTpyN2gsdE4tX1ZsIV5aJm4rPWhKdU80QDg9WFxkbDYtbDU+Vy50SU9qKDhpYFltNz9iW148OzgnUDtoV0YzIiw+alIwa1goVicxcWBdIkIxaltcL0cpXWdmWzgzUWEvTWgpJ0xvXSdJZ0NMMCpVVypjSU1kZjgobDtuWSE7cSNdT25WInMrRzdZR1NnUUZXKXFLOidkUTFbc3E/bS5MPVI5R0RbUVUmTCxcXCg/Zlo6UUtGJUZBZSsoZ1lbIjc/aGVCJVZIWExvaWlYVFRnblVDa1RXRGZrXmtAcCFCLy1pRHNBRlY2cTgmWGhCa25Xa3VVUDwiO1VpODtxJTFuV2wjNVtwLDQqdSYqLFNhcWxza2hucF1RRmhRUSc/TmVKSXBYbmBaLkkqMSNyRkc5KmFpbVthV1lIZGU4NydgPkw0NWgtQD42TzFwLCoxO2RNXl5KKFNeIUFvMVZoKWNsLDEyRUZgYDpOWUExaTM8SzNcX0pJT3MmZy1FJlZcdTZlYWw6PU8sWnJHPG9MZmFFVkQra1BsV1tDVj4kU1xEJm1uU1ppNGxkPyFQLUFqVFU7MFlIRlJDUDQla19mPGRiIjovKDZUMGNlS2gsLT5MIWk7W1hrRWw1NHU3KyZ1Si1AJzRBMWxcKzBGTlpOZkMoRFlqNi8wMWVwITU5MTImaz5yYjZHa0ovcWJnXWcncjcvLVNocCtGQmA/MEBnQ0NFUj9yVXQuSFdySjpQcGEpNityUT5NMSdMQ1lVLU1uKVooSkMwVmVNRzszPF1kZlozNDJKXVZhNCVvZ0VUT0tdbWcjJ05GclJ+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDkKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMDIgMDAwMDAgbiAKMDAwMDAwMDIwOSAwMDAwMCBuIAowMDAwMDAwMzIxIDAwMDAwIG4gCjAwMDAwMDA1MjQgMDAwMDAgbiAKMDAwMDAwMDU5MiAwMDAwMCBuIAowMDAwMDAwODgwIDAwMDAwIG4gCjAwMDAwMDA5MzkgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8MTg0ZTdiZDQ1Yjk5OTE1MGIxYjM0NzdkZDFkOTAxYzE+PDE4NGU3YmQ0NWI5OTkxNTBiMWIzNDc3ZGQxZDkwMWMxPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA2IDAgUgovUm9vdCA1IDAgUgovU2l6ZSA5Cj4+CnN0YXJ0eHJlZgozODkxCiUlRU9GCg==" download="Hafiz-Alyanga-CV.pdf">Download CV <span class="arr" aria-hidden="true">&#8595;</span></a>
+          <a class="cta-link" href="mailto:pkasemer@gmail.com">Get in Touch <span class="arr" aria-hidden="true">&#8594;</span></a>
+        </div>
       </div>
+      <aside class="sysview" aria-label="System view">
+        <div class="sv-head"><span><b>System view</b></span><span>Kampala &#183; UG</span></div>
+        <ol class="sv-cols">
+          <li class="sv-col"><span class="sv-num">01</span><div><b>APIs &amp; Integrations</b><span class="sv-desc">Backend services, enterprise integrations and digital channels.</span></div></li>
+          <li class="sv-col"><span class="sv-num">02</span><div><b>Data Platforms</b><span class="sv-desc">Pipelines, warehouses and reporting people can trust.</span></div></li>
+          <li class="sv-col"><span class="sv-num">03</span><div><b>Applied AI</b><span class="sv-desc">Machine learning, computer vision and intelligent automation.</span></div></li>
+          <li class="sv-col"><span class="sv-num">04</span><div><b>Mobile Products</b><span class="sv-desc">Applications people use every day, monitored in production.</span></div></li>
+        </ol>
+      </aside>
     </div>
-    <div class="sysview">
-      <div class="sv-head"><span><b>System view</b></span><span>Kampala &#183; UG</span></div>
-      <ol class="sv-cols">
-        <li class="sv-col"><span class="sv-num">01</span><b>APIs &amp; Integrations</b><span class="sv-desc">Backend services, enterprise integrations and digital channels.</span></li>
-        <li class="sv-col"><span class="sv-num">02</span><b>Data Platforms</b><span class="sv-desc">Pipelines, warehouses and reporting people can trust.</span></li>
-        <li class="sv-col"><span class="sv-num">03</span><b>Applied AI</b><span class="sv-desc">Machine learning, computer vision and intelligent automation.</span></li>
-        <li class="sv-col"><span class="sv-num">04</span><b>Mobile Products</b><span class="sv-desc">Applications people use every day, monitored in production.</span></li>
-      </ol>
-    </div>
-    <nav class="hero-index" aria-label="On this page"><span class="ix-label">Index</span><a href="#work"><i>01</i> Work</a><a href="#experience"><i>02</i> Experience</a><a href="#capabilities"><i>03</i> Capabilities</a><a href="#writing"><i>04</i> Writing</a></nav>
     <div class="glance" aria-label="At a glance">
       <h3>At a glance</h3>
       <div class="glance-grid">
