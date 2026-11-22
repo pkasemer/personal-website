@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 112" fill="none" stroke="#171717" stroke-width="6" stroke-linejoin="miter">
-<path d="M50 8 L86 29 L86 71 L50 92 L14 71 L14 29 Z"/>
-<path d="M50 50 L50 8 M50 50 L14 71 M50 50 L86 71"/>
-<path d="M14 84 L50 105 L86 84"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 270" width="240" height="270">
+  <title>Hafiz Alyanga cube mark</title>
+  <g fill="none" stroke="#171717" stroke-width="10" stroke-linejoin="miter" stroke-linecap="square">
+    <path d="M120 16 L225 68 L120 122 L15 68 Z"/>
+    <path d="M15 68 V174 L120 226 L225 174 V68"/>
+    <path d="M120 122 V226"/>
+  </g>
+  <path fill="#171717" d="M8 194 L120 250 L232 194 L225 211 L120 263 L15 211 Z"/>
 </svg>
