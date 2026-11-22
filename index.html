@@ -40,9 +40,13 @@ img,svg{max-width:100%}a{color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .btn:hover{border-color:var(--ink)}
-.hero{padding:36px 0 56px;position:relative;overflow:clip}
-.hero-watermark{position:absolute;top:8px;right:-140px;width:min(560px,70vw);height:auto;color:var(--ink);opacity:.06;pointer-events:none;z-index:0}
+.hero{padding:36px 0 56px;position:relative;overflow:visible}
+.masthead-zone{position:relative;clip-path:inset(0 -100vw 0 0)}
+.masthead-zone>*:not(.hero-watermark){position:relative;z-index:1}
+.hero-watermark{position:absolute;top:50%;right:calc(50% - 50vw);transform:translateY(-50%);width:min(252px,54vw);height:auto;color:var(--ink);opacity:.06;pointer-events:none;z-index:0}
 .hero>*:not(.hero-watermark){position:relative;z-index:1}
+@media(max-width:900px){.hero-watermark{width:200px}}
+@media(max-width:560px){.hero-watermark{width:158px}}
 .eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .hero-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px 32px;flex-wrap:wrap}
 .hero-meta-left{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
@@ -180,6 +184,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 
 <main id="top" class="wrap">
   <div class="hero">
+    <div class="masthead-zone">
     <svg class="hero-watermark" viewBox="0 0 240 270" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="10" stroke-linejoin="miter" stroke-linecap="square"><path d="M120 16 L225 68 L120 122 L15 68 Z"/><path d="M15 68 V174 L120 226 L225 174 V68"/><path d="M120 122 V226"/></g><path fill="currentColor" d="M8 194 L120 250 L232 194 L225 211 L120 263 L15 211 Z"/></svg>
     <div class="hero-meta">
       <span class="hero-meta-left">Technology Leadership &#183; Software &#183; Data &#183; AI</span>
@@ -187,6 +192,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
     </div>
     <div class="hero-masthead">
       <h1 class="hero-name"><span class="name-line">Hafiz</span><span class="name-line">Alyanga</span></h1>
+    </div>
     </div>
     <div class="hero-sub">
       <p class="hero-role">Technology Lead &#8212;<br>Software, Data <span class="amp">&amp;</span> AI</p>
